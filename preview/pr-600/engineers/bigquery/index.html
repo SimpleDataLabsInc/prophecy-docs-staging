@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-600/assets/css/styles.16451571.css">
-<script src="/prophecy-docs-staging/preview/pr-600/assets/js/runtime~main.883a8bd2.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-600/assets/js/runtime~main.2d4cc821.js" defer="defer"></script>
 <script src="/prophecy-docs-staging/preview/pr-600/assets/js/main.8136ac83.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -23,23 +23,35 @@ For non-Databricks clusters, install the corresponding library, and see <a href=
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="retrieve-json-credentials">Retrieve JSON credentials<a href="#retrieve-json-credentials" class="hash-link" aria-label="Direct link to Retrieve JSON credentials" title="Direct link to Retrieve JSON credentials">​</a></h3>
 <p>To get your JSON Credentials from BigQuery:</p>
 <ol>
-<li>Navigate to your <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noopener noreferrer">Google Cloud Credentials page</a>.</li>
-<li>In the top navigation bar, click <code>+ CREATE CREDENTIALS</code>.</li>
-<li>Select <code>Service account</code>.</li>
-<li>If you don&#x27;t have a Service account, create a service account.</li>
-</ol>
+<li>
+<p>Navigate to your <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noopener noreferrer">Google Cloud Credentials page</a>.</p>
+</li>
+<li>
+<p>In the top navigation bar, click <code>+ CREATE CREDENTIALS</code>.</p>
+</li>
+<li>
+<p>Select <code>Service account</code>.</p>
+</li>
+<li>
+<p>If you don&#x27;t have a Service account, create a service account.</p>
 <p>a. If you don&#x27;t have a Service account, enter your <strong>Service account name</strong>, <strong>Service account ID</strong>, and <strong>Service account description</strong>.
 Then click <code>Create and continue</code>. <br>
 b. Click <code>Done</code>.</p>
-<ol>
-<li>Under the <code>Service Accounts</code> section, click on your service account email.</li>
-<li>Navigate to the <code>Keys</code> tab.</li>
-<li>Create a new key.</li>
-</ol>
+</li>
+<li>
+<p>Under the <code>Service Accounts</code> section, click on your service account email.</p>
+</li>
+<li>
+<p>Navigate to the <code>Keys</code> tab.</p>
+</li>
+<li>
+<p>Create a new key.</p>
 <p>a. Click <code>Add key</code>.<br>
 b. Click <code>Create new key</code> <br>
 c. Select the <code>JSON key type</code>. <br>
 d. Click <code>Create</code>.</p>
+</li>
+</ol>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="source">Source<a href="#source" class="hash-link" aria-label="Direct link to Source" title="Direct link to Source">​</a></h2>
 <p>The Source gem reads data from BigQuery and allows you to optionally specify the following additional properties.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="source-properties">Source properties<a href="#source-properties" class="hash-link" aria-label="Direct link to Source properties" title="Direct link to Source properties">​</a></h3>
