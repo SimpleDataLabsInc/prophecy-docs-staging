@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-613/assets/css/styles.16451571.css">
-<script src="/prophecy-docs-staging/preview/pr-613/assets/js/runtime~main.b10980c1.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-613/assets/js/runtime~main.b324a6e1.js" defer="defer"></script>
 <script src="/prophecy-docs-staging/preview/pr-613/assets/js/main.f7471af3.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -21,7 +21,7 @@
 </ul>
 <p>This will result in errors or unexpected behavior.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="why-this-happens">Why this happens<a href="#why-this-happens" class="hash-link" aria-label="Direct link to Why this happens" title="Direct link to Why this happens">​</a></h2>
-<p>Under the hood, Prophecy executes SQL transformations by generating and running <a href="/prophecy-docs-staging/preview/pr-613/engineers/models">dbt models</a>. dbt operates with a model-centric approach where each model is responsible for generating or updating a specific table. dbt expects a <strong>1:1 relationship between models and tables</strong>.</p>
+<p>Prophecy executes SQL transformations by generating and running <a href="/prophecy-docs-staging/preview/pr-613/engineers/models">dbt models</a>. dbt operates with a model-centric approach where each model is responsible for generating or updating a specific table. dbt expects a <strong>1:1 relationship between models and tables</strong>.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="solution">Solution<a href="#solution" class="hash-link" aria-label="Direct link to Solution" title="Direct link to Solution">​</a></h2>
 <p>To resolve this, split the write operations into separate intermediate tables and use a third table to consolidate the data via a union.</p>
 <p>We recommended the following process:</p>
