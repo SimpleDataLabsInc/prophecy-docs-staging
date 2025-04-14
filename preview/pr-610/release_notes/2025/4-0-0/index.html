@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-610/assets/css/styles.d3e68223.css">
-<script src="/prophecy-docs-staging/preview/pr-610/assets/js/runtime~main.7a007520.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-610/assets/js/runtime~main.9800d4f9.js" defer="defer"></script>
 <script src="/prophecy-docs-staging/preview/pr-610/assets/js/main.83233249.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -58,11 +58,14 @@
 <p><a href="/prophecy-docs-staging/preview/pr-610/engineers/data-diff">Data diff</a> is a new feature that lets you see if your target data at the end of your pipeline matches your expectations.</p>
 </li>
 <li>
+<p>You can now set a specific Spark Config in a <a href="/prophecy-docs-staging/preview/pr-610/administration/fabrics/Spark-fabrics/livy">Livy fabric</a> for a job size configuration.</p>
+</li>
+<li>
 <p>The <a href="/prophecy-docs-staging/preview/pr-610/engineers/csv">CSV Source gem</a> in Python/PySpark projects now includes a property that lets you skip <em>n</em> number of first or last lines when reading in a CSV file.</p>
 </li>
 <li>
 <p>More gems in Python/PySpark projects are now compatible with <a href="/prophecy-docs-staging/preview/pr-610/administration/fabrics/Spark-fabrics/databricks/ucshared">Databricks UC clusters</a> configured with standard (formerly shared) access mode. The table below shows the minimum package version required to enable compatibility.</p>
-<table><thead><tr><th>Gem</th><th>Condition</th><th>Package</th><th>Minimum version</th></tr></thead><tbody><tr><td><a href="/prophecy-docs-staging/preview/pr-610/engineers/csv">CSV Source</a></td><td>Read file with Pandas</td><td><code>ProphecySparkBasicsPython</code></td><td><code>0.2.44</code></td></tr><tr><td><a href="/prophecy-docs-staging/preview/pr-610/engineers/bigquery">BigQuery Source</a></td><td>None</td><td><code>ProphecyWarehousePython</code></td><td><code>0.0.9</code></td></tr><tr><td>EmailData</td><td>None</td><td><code>ProphecyWebAppPython</code></td><td><code>0.1.2</code></td></tr><tr><td><a href="/prophecy-docs-staging/preview/pr-610/engineers/seed">Seed Source</a></td><td>None</td><td><code>ProphecySparkBasicsPython</code></td><td><code>0.2.39</code></td></tr></tbody></table>
+<table><thead><tr><th>Gem</th><th>Condition</th><th>Package</th><th>Minimum version</th></tr></thead><tbody><tr><td><a href="/prophecy-docs-staging/preview/pr-610/engineers/csv">CSV Source</a></td><td>Read file with Pandas</td><td><code>ProphecySparkBasicsPython</code></td><td><code>0.2.44</code></td></tr><tr><td><a href="/prophecy-docs-staging/preview/pr-610/engineers/bigquery">BigQuery Source and Target</a></td><td>None</td><td><code>ProphecyWarehousePython</code></td><td><code>0.0.9</code></td></tr><tr><td>EmailData</td><td>None</td><td><code>ProphecyWebAppPython</code></td><td><code>0.1.2</code></td></tr><tr><td><a href="/prophecy-docs-staging/preview/pr-610/engineers/seed">Seed Source</a></td><td>None</td><td><code>ProphecySparkBasicsPython</code></td><td><code>0.2.39</code></td></tr></tbody></table>
 </li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes">Fixes<a href="#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes">​</a></h3>

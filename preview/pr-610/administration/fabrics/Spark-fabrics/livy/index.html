@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-610/assets/css/styles.d3e68223.css">
-<script src="/prophecy-docs-staging/preview/pr-610/assets/js/runtime~main.7a007520.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-610/assets/js/runtime~main.9800d4f9.js" defer="defer"></script>
 <script src="/prophecy-docs-staging/preview/pr-610/assets/js/main.83233249.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -17,26 +17,38 @@ You can create a generic Livy fabric to connect Prophecy to any Spark cluster ac
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="create-the-livy-fabric">Create the Livy fabric<a href="#create-the-livy-fabric" class="hash-link" aria-label="Direct link to Create the Livy fabric" title="Direct link to Create the Livy fabric">​</a></h2>
 <p>Let&#x27;s get started with creating Livy fabric.</p>
 <ol>
-<li>Click on the <strong>Create Entity</strong> button from the left navigation bar.</li>
-<li>Click on the <strong>Fabric</strong> tile.</li>
-<li>Fill out the basic information:<!-- -->
+<li>
+<p>Click on the <strong>Create Entity</strong> button from the left navigation bar.</p>
+</li>
+<li>
+<p>Click on the <strong>Fabric</strong> tile.</p>
+</li>
+<li>
+<p>Fill out the basic information and click <strong>Continue</strong>.</p>
+</li>
+<li>
+<p>Fill in the information about the Spark provider.</p>
 <ul>
-<li><strong>Name</strong></li>
-<li><strong>Description</strong></li>
-<li><strong>Team</strong></li>
+<li>
+<p><strong>Provider Type</strong>: Spark</p>
+</li>
+<li>
+<p><strong>Provider</strong>: Livy</p>
+</li>
+<li>
+<p><strong>Livy URL</strong>: The URL to your Livy environment</p>
+</li>
+<li>
+<p><strong>Use mTLS Encryption (optional)</strong>: The Client Certificate and Client Key required for mTLS.</p>
+</li>
+<li>
+<p><strong>Authentication type</strong>: How you will authenticate Livy in Prophecy</p>
+</li>
 </ul>
 </li>
-<li>Click <strong>Continue</strong>.</li>
-<li>Fill in the information about the Spark provider.<!-- -->
-<ul>
-<li><strong>Provider Type</strong>: Spark</li>
-<li><strong>Provider</strong>: Livy</li>
-<li><strong>Livy URL</strong>: The URL to your Livy environment</li>
-<li><strong>Use mTLS Encryption (optional)</strong>: The Client Certificate and Client Key required for mTLS.</li>
-<li><strong>Authentication type</strong>: How you will authenticate Livy in Prophecy</li>
-</ul>
+<li>
+<p>Test the connection to validate the fabric.</p>
 </li>
-<li>Test the connection to validate the fabric.</li>
 </ol>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="authentication-types">Authentication types<a href="#authentication-types" class="hash-link" aria-label="Direct link to Authentication types" title="Direct link to Authentication types">​</a></h3>
 <p>Prophecy supports the following authentication types for Livy.</p>
@@ -55,18 +67,35 @@ You can create a generic Livy fabric to connect Prophecy to any Spark cluster ac
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="additional-livy-configurations">Additional Livy configurations<a href="#additional-livy-configurations" class="hash-link" aria-label="Direct link to Additional Livy configurations" title="Direct link to Additional Livy configurations">​</a></h2>
 <p>Once the connection is validated:</p>
 <ol>
-<li>Edit or add job sizes. A job size consists of the following.<!-- -->
+<li>
+<p>Edit or add job sizes. A job size consists of the following.</p>
 <ul>
-<li>Name</li>
-<li>Drivers: The number of cores and amount of memory of the drivers</li>
-<li>Executors: The number of cores and the amount of memory of the executors, and the total number of executors</li>
+<li>
+<p><strong>Name</strong>: The name of the job size.</p>
+</li>
+<li>
+<p><strong>Drivers</strong>: The number of cores and amount of memory of the drivers</p>
+</li>
+<li>
+<p><strong>Executors</strong>: The number of cores and the amount of memory of the executors, and the total number of executors</p>
+</li>
+<li>
+<p><strong>(Optional) Spark Config</strong>: The Spark configuration parameters at the job size level. These settings control cluster behavior when using this job size. If the same config key is also defined at the fabric level, the value set at the job size level will override it.</p>
+</li>
 </ul>
 </li>
-<li>Configure the Prophecy Library settings.<!-- -->
+<li>
+<p>Configure the Prophecy Library settings.</p>
 <ul>
-<li>Spark version: Version that is used when a user attaches to a cluster using this fabric</li>
-<li>Scala version: Version that is used when a user attaches to a cluster using this fabric</li>
-<li>Scala/Python resolution mode: Location of libraries to use for Scala or Python</li>
+<li>
+<p><strong>Spark version</strong>: Version that is used when a user attaches to a cluster using this fabric</p>
+</li>
+<li>
+<p><strong>Scala version</strong>: Version that is used when a user attaches to a cluster using this fabric</p>
+</li>
+<li>
+<p><strong>Scala/Python resolution mode</strong>: Location of libraries to use for Scala or Python</p>
+</li>
 </ul>
 </li>
 </ol>
