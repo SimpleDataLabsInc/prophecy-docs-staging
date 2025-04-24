@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-620/assets/css/styles.408ff866.css">
-<script src="/prophecy-docs-staging/preview/pr-620/assets/js/runtime~main.c787fd49.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-620/assets/js/runtime~main.54fef1f8.js" defer="defer"></script>
 <script src="/prophecy-docs-staging/preview/pr-620/assets/js/main.c1c6e9a2.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -21,7 +21,7 @@
 <p>To add additional input ports, click <code>+</code> next to <strong>Ports</strong>.</p>
 <p>All input tables must have <strong>identical schemas</strong> (matching column names and data types).</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="parameters">Parameters<a href="#parameters" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h2>
-<table><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Operation Type</td><td>Except</td></tr><tr><td>Preserve duplicate rows</td><td>Allow duplicates to appear in the output table</td></tr></tbody></table>
+<table><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Operation Type</td><td>Shows that the set operation type is <code>Except</code></td></tr><tr><td>Preserve duplicate rows</td><td>Checkbox to keep duplicates in the output table</td></tr></tbody></table>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="example">Example<a href="#example" class="hash-link" aria-label="Direct link to Example" title="Direct link to Example">​</a></h2>
 <p>Let’s say you’re working with two tables: <strong>Table A</strong> and <strong>Table B</strong>.</p>
 <ul>
@@ -30,7 +30,6 @@
 <li><strong>Table B</strong> contains order information from customer <code>1</code>, <code>2</code>, <code>3</code>, and <code>4</code>.</li>
 <li>These tables contain some identical records (duplicates).</li>
 </ul>
-<p>This example helps illustrate how the Except gem operates on the tables.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="table-a">Table A<a href="#table-a" class="hash-link" aria-label="Direct link to Table A" title="Direct link to Table A">​</a></h3>
 <div class="table-example"><table><thead><tr><th>order_id</th><th>customer_id</th><th>order_date</th><th>amount</th></tr></thead><tbody><tr><td>101</td><td>1</td><td>2024-12-01</td><td>250.00</td></tr><tr><td>102</td><td>2</td><td>2024-12-03</td><td>150.00</td></tr><tr><td>103</td><td>1</td><td>2025-01-15</td><td>300.00</td></tr><tr><td>104</td><td>3</td><td>2025-02-10</td><td>200.00</td></tr></tbody></table></div>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="table-b">Table B<a href="#table-b" class="hash-link" aria-label="Direct link to Table B" title="Direct link to Table B">​</a></h3>

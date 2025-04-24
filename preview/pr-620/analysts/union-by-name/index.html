@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-620/assets/css/styles.408ff866.css">
-<script src="/prophecy-docs-staging/preview/pr-620/assets/js/runtime~main.c787fd49.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-620/assets/js/runtime~main.54fef1f8.js" defer="defer"></script>
 <script src="/prophecy-docs-staging/preview/pr-620/assets/js/main.c1c6e9a2.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -20,15 +20,14 @@
 <table><thead><tr><th>Port</th><th>Description</th></tr></thead><tbody><tr><td><strong>in0</strong></td><td>The first input table.</td></tr><tr><td><strong>in1</strong></td><td>The second input table.</td></tr><tr><td><strong>inN</strong></td><td>Optional: Additional input tables to include in the union.</td></tr><tr><td><strong>out</strong></td><td>A single table containing the combined rows, with columns matched by name.</td></tr></tbody></table>
 <p>To add additional input ports, click <code>+</code> next to <strong>Ports</strong>.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="parameters">Parameters<a href="#parameters" class="hash-link" aria-label="Direct link to Parameters" title="Direct link to Parameters">​</a></h2>
-<table><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Operation Type</td><td><ul class="table-list"><li>Union By Name (No Missing Columns): All columns must be present in both tables</li><li>Union By Name (Allow Missing Columns): Columns do not have to match between tables</li></ul></td></tr></tbody></table>
+<table><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Operation Type</td><td>Choose between two different operations.<ul class="table-list"><li>Union By Name (No Missing Columns): All columns must be present in both tables.</li><li>Union By Name (Allow Missing Columns): Columns do not have to match between tables.</li></ul></td></tr></tbody></table>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="example">Example<a href="#example" class="hash-link" aria-label="Direct link to Example" title="Direct link to Example">​</a></h2>
 <p>Let’s say you’re working with two tables: <strong>Table A</strong> and <strong>Table B</strong>.</p>
 <ul>
 <li>Both tables contain order-related data.</li>
 <li>Table B is missing the <code>amount</code> column that exists in Table A.</li>
-<li>The columns that <strong>Table B</strong> does have are arranged in a different order compared to <strong>Table A</strong>.</li>
+<li>The columns in <strong>Table B</strong> that match <strong>Table A</strong> are ordered differently.</li>
 </ul>
-<p>This example helps illustrate how the UnionByName gem operates on the tables.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="table-a">Table A<a href="#table-a" class="hash-link" aria-label="Direct link to Table A" title="Direct link to Table A">​</a></h3>
 <div class="table-example"><table><thead><tr><th>order_id</th><th>customer_id</th><th>order_date</th><th>amount</th></tr></thead><tbody><tr><td>101</td><td>1</td><td>2024-12-01</td><td>250.00</td></tr><tr><td>102</td><td>2</td><td>2024-12-03</td><td>150.00</td></tr><tr><td>103</td><td>1</td><td>2025-01-15</td><td>300.00</td></tr><tr><td>104</td><td>3</td><td>2025-02-10</td><td>200.00</td></tr></tbody></table></div>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="table-b">Table B<a href="#table-b" class="hash-link" aria-label="Direct link to Table B" title="Direct link to Table B">​</a></h3>
