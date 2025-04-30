@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-628/assets/css/styles.408ff866.css">
-<script src="/prophecy-docs-staging/preview/pr-628/assets/js/runtime~main.aa68a449.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-628/assets/js/runtime~main.b7247662.js" defer="defer"></script>
 <script src="/prophecy-docs-staging/preview/pr-628/assets/js/main.43537224.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -40,7 +40,7 @@
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="create-the-pipeline">Create the pipeline<a href="#create-the-pipeline" class="hash-link" aria-label="Direct link to Create the pipeline" title="Direct link to Create the pipeline">​</a></h2>
 <p>To build a business app, you first need to build the pipeline that will power it. This pipeline will include parameters that users can modify through the app interface. In the following sections, you will build a simple pipeline and leverage pipeline parameters that will drive the app functionality.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="create-a-pipeline-parameter">Create a pipeline parameter<a href="#create-a-pipeline-parameter" class="hash-link" aria-label="Direct link to Create a pipeline parameter" title="Direct link to Create a pipeline parameter">​</a></h3>
-<p><a href="/prophecy-docs-staging/preview/pr-628/analysts/pipeline-parameters">Pipeline parameters</a> enable dynamic behavior in pipelines by allowing values to be set at runtime. In this case, these values can be driven by inputs from external sources, including user input via a Prophecy App.</p>
+<p><a href="/prophecy-docs-staging/preview/pr-628/analysts/pipeline-parameters">Pipeline parameters</a> enable dynamic behavior in pipelines by allowing values to be set at runtime. In this case, these values can be driven by inputs from external sources, including user input through a Prophecy App.</p>
 <p>In this section, you’ll define a pipeline parameter specifically for use in a Prophecy App. The parameter will capture the franchise ID that the user selects, allowing the pipeline to filter reviews based on the franchise they want to see.</p>
 <ol>
 <li>Open the pipeline that will be used for the app.</li>
@@ -53,7 +53,7 @@
 <li>Click <strong>Save</strong>.</li>
 </ol>
 <p><img decoding="async" loading="lazy" alt="Create pipeline parameter dialog" src="/prophecy-docs-staging/preview/pr-628/assets/images/pipeline-parameter-b37046bf616d362fa282c4878d44f6a0.png" width="2870" height="1610" class="img_ev3q"></p>
-<p>The default parameter value can be overridden as you build and configure the Prophecy App.</p>
+<p>You can choose a new default value when you build the Prophecy App. This overrides the default value assigned in the pipeline parameter settings.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="add-source-data">Add source data<a href="#add-source-data" class="hash-link" aria-label="Direct link to Add source data" title="Direct link to Add source data">​</a></h3>
 <p>Add a Source gem to your pipeline. The Prophecy App will use this source by default unless the user overrides it with their own data in the app.</p>
 <ol>
@@ -63,7 +63,7 @@
 <li>Add the <code>media_customer_reviews</code> table to your canvas.</li>
 </ol>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="add-a-filter">Add a filter<a href="#add-a-filter" class="hash-link" aria-label="Direct link to Add a filter" title="Direct link to Add a filter">​</a></h3>
-<p>Next, add a Filter gem to the pipeline. To make the filter condition dynamic, we&#x27;ll use the pipeline parameter in the gem.</p>
+<p>Next, add a Filter gem to the pipeline. To make the filter condition dynamic, you&#x27;ll use the pipeline parameter in the gem.</p>
 <ol>
 <li>Add a <strong>Filter</strong> gem to the canvas.</li>
 <li>Connect the output of the Source gem to the input of the Filter gem.</li>
@@ -78,11 +78,12 @@
 <ol>
 <li>Open the Source/Target gem category.</li>
 <li>Click <strong>Table</strong> to add a new table to the canvas.</li>
+<li>Connect the output of the Filter gem to the input of the Table gem.</li>
+<li>Open the Table gem configuration.</li>
 <li>Under <strong>Select Type and Format</strong>, select <strong>Table</strong>.</li>
 <li>In the <strong>Location</strong> tab, assign a location where Prophecy will write the table.</li>
 <li>Review the remaining tabs and keep the default settings.</li>
 <li><strong>Save</strong> the gem.</li>
-<li>Connect the output of the Filter gem to the input of the Table gem.</li>
 </ol>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="create-a-new-prophecy-app">Create a new Prophecy App<a href="#create-a-new-prophecy-app" class="hash-link" aria-label="Direct link to Create a new Prophecy App" title="Direct link to Create a new Prophecy App">​</a></h2>
 <p>After you build the pipeline, create a business app to run it. Apps are created directly within projects as project components.</p>
