@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-659/assets/css/styles.408ff866.css">
-<script src="/prophecy-docs-staging/preview/pr-659/assets/js/runtime~main.b497b6a0.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-659/assets/js/runtime~main.806bf56f.js" defer="defer"></script>
 <script src="/prophecy-docs-staging/preview/pr-659/assets/js/main.a0c677ea.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -22,23 +22,52 @@
 <table><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Source Type</td><td>Format of the source column.</td></tr><tr><td>Source Column</td><td>Column that contains the source geo points.</td></tr><tr><td>Destination Type</td><td>Format of the destination column.</td></tr><tr><td>Destination Column</td><td>Column that contains the destination geo points.</td></tr></tbody></table>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="select-output-options">Select Output Options<a href="#select-output-options" class="hash-link" aria-label="Direct link to Select Output Options" title="Direct link to Select Output Options">​</a></h3>
 <p>Use the checkboxes defined below to choose which output columns the Distance gem should generate.</p>
-<table><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Output Distance</td><td>Return a column that includes the distance between points in a specified unit of distance</td></tr><tr><td>Output Cardinal Direction</td><td>Return a column that includes the cardinal direction from the source point to the destination point</td></tr><tr><td>Output Direction in Degrees</td><td>Return a column that includes the direction in degrees from the source point to the destination point</td></tr></tbody></table>
+<table><thead><tr><th>Checkbox</th><th>Description</th></tr></thead><tbody><tr><td>Output Distance</td><td>Return a column that includes the distance between points in a specified unit of distance</td></tr><tr><td>Output Cardinal Direction</td><td>Return a column that includes the cardinal direction from the source point to the destination point</td></tr><tr><td>Output Direction in Degrees</td><td>Return a column that includes the direction in degrees from the source point to the destination point</td></tr></tbody></table>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>You can select zero, one, or multiple checkboxes. All checkboxes are disabled by default.</p></div></div>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="example">Example<a href="#example" class="hash-link" aria-label="Direct link to Example" title="Direct link to Example">​</a></h2>
-<p>Assume you have the following airline route table.</p>
+<p>Assume you have the following airline route table, and you would like to calculate the distance between start and destination cities.</p>
 <div class="table-example"><table><thead><tr><th>start_city</th><th>destination_city</th><th>source_point</th><th>dest_point</th></tr></thead><tbody><tr><td>New York</td><td>Los Angeles</td><td>POINT (-74.0060 40.7128)</td><td>POINT (-118.2437 34.0522)</td></tr><tr><td>London</td><td>Paris</td><td>POINT (-0.1278 51.5074)</td><td>POINT (2.3522 48.8566)</td></tr><tr><td>Tokyo</td><td>Sydney</td><td>POINT (139.6917 35.6895)</td><td>POINT (151.2093 -33.8688)</td></tr><tr><td>Toronto</td><td>Chicago</td><td>POINT (-79.3470 43.6511)</td><td>POINT (-87.6298 41.8781)</td></tr><tr><td>Dubai</td><td>Mumbai</td><td>POINT (55.2962 25.2760)</td><td>POINT (72.8777 19.0760)</td></tr></tbody></table></div>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="result">Result<a href="#result" class="hash-link" aria-label="Direct link to Result" title="Direct link to Result">​</a></h3>
-<p>To find the distance and direction between the start cities and the destination cities:</p>
+<p>To find the distance and direction between cities, set the following gem configurations.</p>
 <ol>
-<li>Set <strong>Source Type</strong> to <strong>Point</strong>.</li>
-<li>Set <strong>Source Column</strong> to <code>start_city</code>.</li>
-<li>Set <strong>Destination Type</strong> to <strong>Point</strong>.</li>
-<li>Set <strong>Destination Column</strong> to <code>destination_city</code>.</li>
-<li>Select the <strong>Output Distance</strong> checkbox.</li>
-<li>From the <strong>Units</strong> dropdown, select <strong>Kilometers</strong>.</li>
-<li>Select the <strong>Output Cardinal Direction</strong> checkbox.</li>
-<li>Select the <strong>Output Direction in Degrees</strong> checkbox.</li>
-<li>Run the gem.</li>
+<li>
+<p>Set source and destination:</p>
+<ol>
+<li>
+<p>Set <strong>Source Type</strong> to <strong>Point</strong>.</p>
+</li>
+<li>
+<p>Set <strong>Source Column</strong> to <code>start_city</code>.</p>
+</li>
+<li>
+<p>Set <strong>Destination Type</strong> to <strong>Point</strong>.</p>
+</li>
+<li>
+<p>Set <strong>Destination Column</strong> to <code>destination_city</code>.</p>
+</li>
 </ol>
+</li>
+<li>
+<p>Set output options:</p>
+<ol>
+<li>
+<p>Select the <strong>Output Distance</strong> checkbox.</p>
+</li>
+<li>
+<p>From the <strong>Units</strong> dropdown, select <strong>Kilometers</strong>.</p>
+</li>
+<li>
+<p>Select the <strong>Output Cardinal Direction</strong> checkbox.</p>
+</li>
+<li>
+<p>Select the <strong>Output Direction in Degrees</strong> checkbox.</p>
+</li>
+<li>
+<p>Run the gem.</p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="result">Result<a href="#result" class="hash-link" aria-label="Direct link to Result" title="Direct link to Result">​</a></h3>
 <p>The resulting table will have three new columns: <code>distance_kilometers</code>, <code>cardinal_direction</code>, and <code>direction_degrees</code>.</p>
 <div class="table-example"><table><thead><tr><th>start_city</th><th>destination_city</th><th>source_point</th><th>dest_point</th><th>distance_kilometers</th><th>cardinal_direction</th><th>direction_degrees</th></tr></thead><tbody><tr><td>New York</td><td>Los Angeles</td><td>POINT (-74.0060 40.7128)</td><td>POINT (-118.2437 34.0522)</td><td>3944.42</td><td>W</td><td>273.7</td></tr><tr><td>London</td><td>Paris</td><td>POINT (-0.1278 51.5074)</td><td>POINT (2.3522 48.8566)</td><td>343.92</td><td>SE</td><td>148.1</td></tr><tr><td>Tokyo</td><td>Sydney</td><td>POINT (139.6917 35.6895)</td><td>POINT (151.2093 -33.8688)</td><td>7792.96</td><td>S</td><td>169.9</td></tr><tr><td>Toronto</td><td>Chicago</td><td>POINT (-79.3470 43.6511)</td><td>POINT (-87.6298 41.8781)</td><td>705.64</td><td>W</td><td>256.6</td></tr><tr><td>Dubai</td><td>Mumbai</td><td>POINT (55.2962 25.2760)</td><td>POINT (72.8777 19.0760)</td><td>1936.68</td><td>E</td><td>107.3</td></tr></tbody></table></div></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class="col"><b>Tags:</b><ul class="tags_jXut padding--none margin-left--sm"><li class="tag_QGVx"><a class="tag_zVej tagRegular_sFm0" href="/prophecy-docs-staging/preview/pr-659/tags/gems">gems</a></li><li class="tag_QGVx"><a class="tag_zVej tagRegular_sFm0" href="/prophecy-docs-staging/preview/pr-659/tags/analyst">analyst</a></li><li class="tag_QGVx"><a class="tag_zVej tagRegular_sFm0" href="/prophecy-docs-staging/preview/pr-659/tags/spatial">spatial</a></li></ul></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/prophecy-docs-staging/preview/pr-659/analysts/create-point"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">CreatePoint</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/prophecy-docs-staging/preview/pr-659/analysts/json-parse"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">JSONParse</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#parameters" class="table-of-contents__link toc-highlight">Parameters</a><ul><li><a href="#spatial-object-fields" class="table-of-contents__link toc-highlight">Spatial Object Fields</a></li><li><a href="#select-output-options" class="table-of-contents__link toc-highlight">Select Output Options</a></li></ul></li><li><a href="#example" class="table-of-contents__link toc-highlight">Example</a><ul><li><a href="#result" class="table-of-contents__link toc-highlight">Result</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Prophecy</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.prophecy.io/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Home<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://www.prophecy.io/blogs" target="_blank" rel="noopener noreferrer" class="footer__link-item">Blog<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://join.slack.com/t/prophecy-io-support/shared_invite/zt-1dwuvkakg-JcavnQuoukyZ3q5jkSkKCg" target="_blank" rel="noopener noreferrer" class="footer__link-item">Slack<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="mailto:docs@prophecy.io" target="_blank" rel="noopener noreferrer" class="footer__link-item">Documentation feedback<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://app.prophecy.io/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Login<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">© 2025 Prophecy Inc All Rights Reserved <a href="https://legal.prophecy.io/privacy" target="_blank">Privacy Policy</a></div></div></div></footer></div>
 </body>

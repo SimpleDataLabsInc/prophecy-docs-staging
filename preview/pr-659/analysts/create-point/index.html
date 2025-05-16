@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-659/assets/css/styles.408ff866.css">
-<script src="/prophecy-docs-staging/preview/pr-659/assets/js/runtime~main.b497b6a0.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-659/assets/js/runtime~main.806bf56f.js" defer="defer"></script>
 <script src="/prophecy-docs-staging/preview/pr-659/assets/js/main.a0c677ea.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -23,18 +23,44 @@
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="example">Example<a href="#example" class="hash-link" aria-label="Direct link to Example" title="Direct link to Example">​</a></h2>
 <p>Assume you have the following airline route table.</p>
 <div class="table-example"><table><thead><tr><th>start_city</th><th>start_lat</th><th>start_long</th><th>destination_city</th><th>destination_lat</th><th>destination_long</th></tr></thead><tbody><tr><td>New York</td><td>40.7128</td><td>-74.0060</td><td>Los Angeles</td><td>34.0522</td><td>-118.2437</td></tr><tr><td>London</td><td>51.5074</td><td>-0.1278</td><td>Paris</td><td>48.8566</td><td>2.3522</td></tr><tr><td>Tokyo</td><td>35.6895</td><td>139.6917</td><td>Sydney</td><td>-33.8688</td><td>151.2093</td></tr><tr><td>Toronto</td><td>43.6511</td><td>-79.3470</td><td>Chicago</td><td>41.8781</td><td>-87.6298</td></tr><tr><td>Dubai</td><td>25.2760</td><td>55.2962</td><td>Mumbai</td><td>19.0760</td><td>72.8777</td></tr></tbody></table></div>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="result">Result<a href="#result" class="hash-link" aria-label="Direct link to Result" title="Direct link to Result">​</a></h3>
 <p>To convert the start and destination coordinates into geographic points:</p>
 <ol>
-<li>Click <strong>Add a Point</strong>.</li>
-<li>For <strong>Longitude Column Name</strong>, select the <code>start_long</code> column.</li>
-<li>For <strong>Latitude Column Name</strong>, select the <code>start_lat</code> column.</li>
-<li>For the <strong>Target Column Name</strong>, type <code>source_point</code>.</li>
-<li>Next, click <strong>Add a Point</strong> again.</li>
-<li>For <strong>Longitude Column Name</strong>, select the <code>destination_long</code> column.</li>
-<li>For <strong>Latitude Column Name</strong>, select the <code>destination_lat</code> column.</li>
-<li>For the <strong>Target Column Name</strong>, type <code>dest_point</code>.</li>
+<li>
+<p>Create the first column pairing:</p>
+<ol>
+<li>
+<p>Click <strong>Add a Point</strong>.</p>
+</li>
+<li>
+<p>For <strong>Longitude Column Name</strong>, select the <code>start_long</code> column.</p>
+</li>
+<li>
+<p>For <strong>Latitude Column Name</strong>, select the <code>start_lat</code> column.</p>
+</li>
+<li>
+<p>For the <strong>Target Column Name</strong>, type <code>source_point</code>.</p>
+</li>
 </ol>
+</li>
+<li>
+<p>Create another column pairing:</p>
+<ol>
+<li>
+<p>Click <strong>Add a Point</strong>.</p>
+</li>
+<li>
+<p>For <strong>Longitude Column Name</strong>, select the <code>destination_long</code> column.</p>
+</li>
+<li>
+<p>For <strong>Latitude Column Name</strong>, select the <code>destination_lat</code> column.</p>
+</li>
+<li>
+<p>For the <strong>Target Column Name</strong>, type <code>dest_point</code>.</p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="result">Result<a href="#result" class="hash-link" aria-label="Direct link to Result" title="Direct link to Result">​</a></h3>
 <p>The CreatePoint gem will produce the following output with two new columns: <code>source_point</code> and <code>dest_point</code>.</p>
 <div class="table-example"><table><thead><tr><th>start_city</th><th>start_lat</th><th>start_long</th><th>destination_city</th><th>destination_lat</th><th>destination_long</th><th>source_point</th><th>dest_point</th></tr></thead><tbody><tr><td>New York</td><td>40.7128</td><td>-74.0060</td><td>Los Angeles</td><td>34.0522</td><td>-118.2437</td><td>POINT (-74.0060 40.7128)</td><td>POINT (-118.2437 34.0522)</td></tr><tr><td>London</td><td>51.5074</td><td>-0.1278</td><td>Paris</td><td>48.8566</td><td>2.3522</td><td>POINT (-0.1278 51.5074)</td><td>POINT (2.3522 48.8566)</td></tr><tr><td>Tokyo</td><td>35.6895</td><td>139.6917</td><td>Sydney</td><td>-33.8688</td><td>151.2093</td><td>POINT (139.6917 35.6895)</td><td>POINT (151.2093 -33.8688)</td></tr><tr><td>Toronto</td><td>43.6511</td><td>-79.3470</td><td>Chicago</td><td>41.8781</td><td>-87.6298</td><td>POINT (-79.3470 43.6511)</td><td>POINT (-87.6298 41.8781)</td></tr><tr><td>Dubai</td><td>25.2760</td><td>55.2962</td><td>Mumbai</td><td>19.0760</td><td>72.8777</td><td>POINT (55.2962 25.2760)</td><td>POINT (72.8777 19.0760)</td></tr></tbody></table></div></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-tags-row"><div class="col"><b>Tags:</b><ul class="tags_jXut padding--none margin-left--sm"><li class="tag_QGVx"><a class="tag_zVej tagRegular_sFm0" href="/prophecy-docs-staging/preview/pr-659/tags/gems">gems</a></li><li class="tag_QGVx"><a class="tag_zVej tagRegular_sFm0" href="/prophecy-docs-staging/preview/pr-659/tags/analyst">analyst</a></li><li class="tag_QGVx"><a class="tag_zVej tagRegular_sFm0" href="/prophecy-docs-staging/preview/pr-659/tags/spatial">spatial</a></li></ul></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/prophecy-docs-staging/preview/pr-659/analysts/except"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Except</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/prophecy-docs-staging/preview/pr-659/analysts/distance"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Distance</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#parameters" class="table-of-contents__link toc-highlight">Parameters</a></li><li><a href="#example" class="table-of-contents__link toc-highlight">Example</a><ul><li><a href="#result" class="table-of-contents__link toc-highlight">Result</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Prophecy</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.prophecy.io/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Home<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://www.prophecy.io/blogs" target="_blank" rel="noopener noreferrer" class="footer__link-item">Blog<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://join.slack.com/t/prophecy-io-support/shared_invite/zt-1dwuvkakg-JcavnQuoukyZ3q5jkSkKCg" target="_blank" rel="noopener noreferrer" class="footer__link-item">Slack<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="mailto:docs@prophecy.io" target="_blank" rel="noopener noreferrer" class="footer__link-item">Documentation feedback<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://app.prophecy.io/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Login<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">© 2025 Prophecy Inc All Rights Reserved <a href="https://legal.prophecy.io/privacy" target="_blank">Privacy Policy</a></div></div></div></footer></div>
 </body>
