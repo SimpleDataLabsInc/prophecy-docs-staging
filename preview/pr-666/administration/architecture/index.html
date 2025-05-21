@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-666/assets/css/styles.408ff866.css">
-<script src="/prophecy-docs-staging/preview/pr-666/assets/js/runtime~main.e2aa573a.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-666/assets/js/runtime~main.9209a48a.js" defer="defer"></script>
 <script src="/prophecy-docs-staging/preview/pr-666/assets/js/main.5e654b3d.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -20,10 +20,10 @@
 <p><strong>Prophecy Studio</strong>: The studio user interface lets you access and develop visual data pipelines in various projects.</p>
 </li>
 <li>
-<p><strong>Prophecy Automate</strong>: This is our built-in Prophecy runtime designed for ingestion, egress, and orchestration. It is available exclusively for Prophecy fabrics with SQL connections and does not apply to Spark-based projects. To use connectors, you must have the appropriate connectivity setup.</p>
+<p><strong>Prophecy Automate</strong>: This is our built-in Prophecy runtime designed for ingestion, egress, and orchestration. It is an extension for SQL projects and does not apply to Spark-based projects. To learn more about SQL connections, see the <a href="/prophecy-docs-staging/preview/pr-666/administration/fabrics/prophecy-fabrics/#connections">Prophecy Automate Connection parameters</a>.</p>
 </li>
 <li>
-<p><strong>External execution engine</strong>: Prophecy runs data transformations on your execution environment, such as Snowflake or Databricks. <a href="/prophecy-docs-staging/preview/pr-666/fabrics">Fabrics</a> enables users to execute pipelines on these platforms. Prophecy does not persist your data.</p>
+<p><strong>External execution engine</strong>: Prophecy runs data transformations on your execution environment, such as Snowflake or Databricks. <a href="/prophecy-docs-staging/preview/pr-666/fabrics">Fabrics</a> enable users to execute pipelines on these platforms. Prophecy does not persist your data.</p>
 </li>
 <li>
 <p><strong>Source control</strong>: Prophecy integrates with Git for version control and supports both native and external Git options.</p>
@@ -37,6 +37,14 @@
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="prophecy-for-analysts">Prophecy for Analysts<a href="#prophecy-for-analysts" class="hash-link" aria-label="Direct link to Prophecy for Analysts" title="Direct link to Prophecy for Analysts">​</a></h2>
 <p>Prophecy for Analysts leverages Prophecy Automate and an external SQL warehouse of your choice to build, run, and schedule pipelines.</p>
+<p>The following architecture diagram demonstrates an example of the various components involved in a Prophecy deployment in their respective virtual networks.</p>
+<p><img decoding="async" loading="lazy" alt="Prophecy for Analysts" src="/prophecy-docs-staging/preview/pr-666/assets/images/arch-prophecy-sql-a229bab28ae2a3b538e8bf39a5fba2f6.png" width="3840" height="2160" class="img_ev3q"></p>
+<p>Prophecy can accommodate a wide variety of architectures beyond this diagram. For example:</p>
+<ul>
+<li>The diagram shows Databricks as the data provider and SQL warehouse. Prophecy also supports Snowflake SQL warehouse.</li>
+<li>The diagram displays a connection to an external Git repository. You can also use Prophecy-managed Git for version control.</li>
+<li>The diagram places Prophecy Automate inside Prophecy. If necessary, Prophecy Automate can run in a customer network instead. If you opt to run Prophecy Automate in your customer network, then you must specify this in the Prophecy <a href="/prophecy-docs-staging/preview/pr-666/administration/fabrics/prophecy-fabrics/">fabric</a>.</li>
+</ul>
 <p>Prophecy Automate comes with the following components:</p>
 <ul>
 <li>
@@ -46,18 +54,10 @@
 <p><strong>Orchestrate</strong>: Time and trigger-based scheduling option with fast interactive experience, and built-in monitoring.</p>
 </li>
 <li>
-<p><strong>Observe</strong>: Quick fix-it of scheduled pipelines, cost, performance, and data monitoring, overlayed on visual canvas.</p>
+<p><strong>Observe</strong>: Quick fix-it of scheduled pipelines, cost, performance, and data monitoring, overlayed on Prophecy Studio.</p>
 </li>
 </ul>
 <div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>All code is still stored on Git in open formats.</p></div></div>
-<p>The following architecture diagram demonstrates an example of the various components involved in a Prophecy deployment in their respective virtual networks.</p>
-<p><img decoding="async" loading="lazy" alt="Prophecy for Analysts" src="/prophecy-docs-staging/preview/pr-666/assets/images/arch-prophecy-sql-a229bab28ae2a3b538e8bf39a5fba2f6.png" width="3840" height="2160" class="img_ev3q"></p>
-<p>Prophecy can accommodate a wide variety of architectures beyond this diagram. For example:</p>
-<ul>
-<li>The diagram shows Databricks as the data provider and SQL warehouse. Prophecy also supports Snowflake SQL warehouse.</li>
-<li>The diagram displays a connection to an external Git repository. You can also use Prophecy-managed Git for version control.</li>
-<li>The diagram places Prophecy Automate inside Prophecy. If necessary, Prophecy Automate can run in a customer network instead. If you opt to run Prophecy Automate in your customer network, then you must specify this in the Prophecy <a href="/prophecy-docs-staging/preview/pr-666/administration/fabrics/prophecy-fabrics/">fabric</a>.</li>
-</ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="prophecy-for-engineers">Prophecy for Engineers<a href="#prophecy-for-engineers" class="hash-link" aria-label="Direct link to Prophecy for Engineers" title="Direct link to Prophecy for Engineers">​</a></h2>
 <p>Prophecy for Engineers privileges Spark to execute pipelines in a scalable and optimized way. This architecture diagram demonstrates one example of the various components involved in a Prophecy deployment in their respective virtual networks.</p>
 <p><img decoding="async" loading="lazy" alt="Prophecy for Engineers" src="/prophecy-docs-staging/preview/pr-666/assets/images/arch-prophecy-spark-b533413262088dd59eeae91dffc759b2.png" width="3840" height="2160" class="img_ev3q"></p>
