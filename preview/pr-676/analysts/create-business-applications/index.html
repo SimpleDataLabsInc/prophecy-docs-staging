@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-676/assets/css/styles.408ff866.css">
-<script src="/prophecy-docs-staging/preview/pr-676/assets/js/runtime~main.6b9a0337.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-676/assets/js/runtime~main.862944c5.js" defer="defer"></script>
 <script src="/prophecy-docs-staging/preview/pr-676/assets/js/main.93c80457.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -22,13 +22,6 @@
 <li>Preview and download the output data.</li>
 </ul>
 <p><img decoding="async" loading="lazy" alt="Run Prophecy App results" src="/prophecy-docs-staging/preview/pr-676/assets/images/prophecy-app-run-a046ce4edeec62639eab7c2341fd77b7.png" width="2870" height="1610" class="img_ev3q"></p>
-<p>To do so, you will create a pipeline that:</p>
-<ul>
-<li>Ingests bakehouse review data from the SQL warehouse.</li>
-<li>Filters the data by franchise location.</li>
-<li>Saves the filtered data to a table.</li>
-</ul>
-<p><img decoding="async" loading="lazy" alt="App pipeline" src="/prophecy-docs-staging/preview/pr-676/assets/images/app-pipeline-cc0ad02c4c76c10e88cb356ddb6f254a.png" width="2870" height="1610" class="img_ev3q"></p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="prerequisites">Prerequisites<a href="#prerequisites" class="hash-link" aria-label="Direct link to Prerequisites" title="Direct link to Prerequisites">​</a></h2>
 <p>To complete this tutorial, you will need:</p>
 <ul>
@@ -38,7 +31,14 @@
 </ul>
 <div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>This tutorial uses sample data provided by Databricks.</p></div></div>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="create-the-pipeline">Create the pipeline<a href="#create-the-pipeline" class="hash-link" aria-label="Direct link to Create the pipeline" title="Direct link to Create the pipeline">​</a></h2>
-<p>To build a business app, you first need to build the pipeline that will power it. This pipeline will include parameters that users can modify through the app interface. In the following sections, you will build a simple pipeline and leverage pipeline parameters that will drive the app functionality.</p>
+<p>Before building a Prophecy App, start by creating the pipeline it will run. You&#x27;ll develop a pipeline that:</p>
+<ul>
+<li>Ingests bakehouse review data from the SQL warehouse.</li>
+<li>Filters the data by franchise location.</li>
+<li>Saves the filtered data to a table.</li>
+</ul>
+<p>This pipeline will include parameters that end users can assign values to through the app interface.</p>
+<p><img decoding="async" loading="lazy" alt="App pipeline" src="/prophecy-docs-staging/preview/pr-676/assets/images/app-pipeline-cc0ad02c4c76c10e88cb356ddb6f254a.png" width="2870" height="1610" class="img_ev3q"></p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="create-a-pipeline-parameter">Create a pipeline parameter<a href="#create-a-pipeline-parameter" class="hash-link" aria-label="Direct link to Create a pipeline parameter" title="Direct link to Create a pipeline parameter">​</a></h3>
 <p><a href="/prophecy-docs-staging/preview/pr-676/analysts/pipeline-parameters">Pipeline parameters</a> enable dynamic behavior in pipelines by allowing values to be set at runtime. In this case, these values can be driven by inputs from external sources, including user input through a Prophecy App.</p>
 <p>In this section, you’ll define a pipeline parameter specifically for use in a Prophecy App. The parameter will capture the franchise ID that the user selects, allowing the pipeline to filter reviews based on the franchise they want to see.</p>
@@ -86,7 +86,7 @@
 <li><strong>Save</strong> the gem.</li>
 </ol>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="create-a-new-prophecy-app">Create a new Prophecy App<a href="#create-a-new-prophecy-app" class="hash-link" aria-label="Direct link to Create a new Prophecy App" title="Direct link to Create a new Prophecy App">​</a></h2>
-<p>After you build the pipeline, create a business app to run it. Apps are created directly within projects as project components.</p>
+<p>After you build the pipeline, create a Prophecy App to run it. Apps are created directly within projects as project components.</p>
 <ol>
 <li>In the project browser, hover over <strong>Apps</strong> and click the <strong>+</strong> icon.</li>
 <li>Name the app <code>Reviews</code>.</li>
