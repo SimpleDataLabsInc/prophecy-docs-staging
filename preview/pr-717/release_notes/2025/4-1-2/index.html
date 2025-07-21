@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-717/assets/css/styles.d2a19db1.css">
-<script src="/prophecy-docs-staging/preview/pr-717/assets/js/runtime~main.0227b1e9.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-717/assets/js/runtime~main.343108c2.js" defer="defer"></script>
 <script src="/prophecy-docs-staging/preview/pr-717/assets/js/main.da0eb89f.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -62,6 +62,17 @@
 </li>
 <li>
 <p>The <a href="/prophecy-docs-staging/preview/pr-717/engineers/table-iterator/">TableIterator</a> gem now works with <a href="/prophecy-docs-staging/preview/pr-717/engineers/data-sampling">Selective</a> data sampling mode.</p>
+</li>
+<li>
+<p>The <a href="/prophecy-docs-staging/preview/pr-717/engineers/delta-table/">Catalog Table</a> Target gem includes the following enhancements. Update the <code>ProphecySparkBasicsPython</code> package to version 0.2.47 to access these updates.</p>
+<ul>
+<li>
+<p>Soft Delete for SCD Type 2 (SCD2) Merge: You can now enable soft delete behavior during SCD2 merges. When the source system deletes a record, the target table retains its history by updating the record’s end-time. This treats the deletion as a Type 2 change instead of removing the row.</p>
+</li>
+<li>
+<p>Schema Evolution for Merge: When writing to a Delta table on Databricks using merge mode, the table can now automatically evolve its schema to accommodate changes in the incoming data (such as added or modified columns). This feature helps prevent merge failures due to schema mismatches. To enable it, turn on the &quot;Schema evolution for merge&quot; property in the Catalog Table Target gem. (Requires Databricks Runtime 15.4 or later.)</p>
+</li>
+</ul>
 </li>
 <li>
 <p>The XLSX gem now runs on <a href="/prophecy-docs-staging/preview/pr-717/administration/fabrics/Spark-fabrics/databricks/ucshared">Databricks UC clusters</a> configured with standard (formerly shared) access mode.</p>
