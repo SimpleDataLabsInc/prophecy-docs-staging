@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-803/assets/css/styles.15a95a4e.css">
-<script src="/prophecy-docs-staging/preview/pr-803/assets/js/runtime~main.10beaa16.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-803/assets/js/runtime~main.fca92cbe.js" defer="defer"></script>
 <script src="/prophecy-docs-staging/preview/pr-803/assets/js/main.3587a2ec.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -32,7 +32,12 @@
 <li>Work with SQL warehouses such as Databricks SQL or BigQuery.</li>
 <li>Focus on transforming data for business intelligence and reporting.</li>
 <li>Prefer visual interfaces over writing code.</li>
-<li>Benefit from built-in scheduling capabilities and API triggers (Prophecy Automate).</li>
+<li>Benefit from built-in scheduling capabilities and API triggers.</li>
+</ul>
+<p>SQL projects can run on:</p>
+<ul>
+<li><strong><a href="/prophecy-docs-staging/preview/pr-803/administration/fabrics/prophecy-fabrics/">Prophecy fabrics</a></strong>: Environment including a SQL warehouse and Prophecy Automate (Prophecy-native runtime).</li>
+<li><strong><a href="/prophecy-docs-staging/preview/pr-803/administration/fabrics/sql-fabrics/Fabrics">SQL fabrics</a></strong>: Environment only including SQL warehouse compute. Project capabilities are limited when using SQL fabrics. Use SQL fabrics for data modeling only.</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="pythonscala-projects">Python/Scala projects<a href="#pythonscala-projects" class="hash-link" aria-label="Direct link to Python/Scala projects" title="Direct link to Python/Scala projects">​</a></h3>
 <p>Python and Scala projects are designed for users who need more control over data processing and work with distributed computing environments. Choose Python or Scala if you:</p>
@@ -42,6 +47,7 @@
 <li>Need full control over the code and execution environment.</li>
 <li>Use external orchestration tools like Databricks Jobs.</li>
 </ul>
+<p>Python and Scala projects can run on <strong><a href="/prophecy-docs-staging/preview/pr-803/administration/fabrics/Spark-fabrics/Fabrics">Spark fabrics</a></strong>.</p>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>For detailed capabilities and feature comparisons, see <a href="/prophecy-docs-staging/preview/pr-803/administration/project-types/">Project types</a>.</p></div></div>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="compute-differences">Compute differences<a href="#compute-differences" class="hash-link" aria-label="Direct link to Compute differences" title="Direct link to Compute differences">​</a></h3>
 <p>SQL projects are tied to a specific SQL warehouse provider (for example, Databricks), which you select when creating the project. Python/Scala projects, by contrast, are provider-agnostic and can run on any Spark cluster (such as Databricks or Livy). Keep in mind that results may vary—Prophecy supports different capabilities based on the requirements and limitations of each different compute (both SQL and Spark-based compute).</p>
@@ -50,9 +56,9 @@
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="sql-project-components">SQL project components<a href="#sql-project-components" class="hash-link" aria-label="Direct link to SQL project components" title="Direct link to SQL project components">​</a></h3>
 <p>SQL projects organize your work around pipelines that combine SQL transformations with external integrations:</p>
 <ul>
-<li><strong>Pipelines</strong>: Visual workflows that sequence data transformation steps. Pipelines run in your SQL warehouse for data processing and in Prophecy Automate for external integrations like API calls and email notifications.</li>
-<li><strong>Gems</strong>: Individual transformation components that you configure visually. Each gem represents a specific data operation like filtering, joining, or aggregating data.</li>
-<li><strong>Tables</strong>: References to data sources and targets configured through Source and Target gems. These represent the actual tables in your SQL warehouse or other data storage.</li>
+<li><strong>Pipelines</strong>: Visual workflows that sequence data transformation steps.</li>
+<li><strong>Gems</strong>: Individual transformation components that you configure visually. Each gem represents a specific data operation like reading, joining, or aggregating data. Gems run in your SQL warehouse for data processing and in Prophecy Automate for external integrations like API calls and email notifications.</li>
+<li><strong>Tables</strong>: References to data sources and targets configured through Source and Target gems. No data is stored in Prophecy.</li>
 <li><strong>Schedules</strong>: Automated pipeline execution managed by Prophecy Automate. Schedules allow you to run pipelines at specified intervals without manual intervention.</li>
 </ul>
 <div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>In Prophecy 4.0 and later, SQL projects use <strong>pipelines</strong> as the main transformation entity, which can include both SQL warehouse operations and Prophecy Automate functions like email notifications and API calls.</p><p>In Prophecy versions prior to 4.0, SQL projects used <strong>models</strong> (dbt-based) that only supported SQL warehouse operations. If you&#x27;re working with an older version, models will be your primary transformation entity.</p></div></div>
@@ -61,14 +67,14 @@
 <ul>
 <li><strong>Pipelines</strong>: Visual workflows that sequence data transformation steps. Pipelines run on Spark clusters.</li>
 <li><strong>Gems</strong>: Individual transformation components that you configure visually. Each gem represents a specific data operation that corresponds to Python or Scala code.</li>
-<li><strong>Datasets</strong>: References to data sources and targets configured through Source and Target gems. These represent the tables or files that you define.</li>
+<li><strong>Datasets</strong>: References to data sources and targets configured through Source and Target gems. No data is stored in Prophecy.</li>
 <li><strong>Jobs</strong>: Automated pipeline execution managed by external orchestration tools like Databricks Jobs.</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="version-control">Version control<a href="#version-control" class="hash-link" aria-label="Direct link to Version control" title="Direct link to Version control">​</a></h2>
 <p>All projects in Prophecy are automatically compiled into code and hosted on Git for version control. This ensures every change is tracked, versioned, and auditable. Version control options available depend on your project type and team requirements.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="git-repository-options">Git repository options<a href="#git-repository-options" class="hash-link" aria-label="Direct link to Git repository options" title="Direct link to Git repository options">​</a></h3>
 <p>Projects can be hosted on two types of Git repositories:</p>
-<table><thead><tr><th>Git Repository Type</th><th>Description</th><th>Use Case</th></tr></thead><tbody><tr><td><strong>Prophecy-managed Git</strong></td><td>Prophecy hosts and manages everything for you. No external Git setup required.</td><td>Teams new to Git or preferring simplified workflows</td></tr><tr><td><strong>External Git</strong></td><td>Connect to GitHub, GitLab, or Bitbucket. You have full control over repository management.</td><td>Teams with existing Git workflows or complex CI/CD requirements</td></tr></tbody></table>
+<table><thead><tr><th>Git Repository</th><th>Description</th><th>Use Case</th></tr></thead><tbody><tr><td><strong>Prophecy-managed Git</strong></td><td>Prophecy hosts and manages everything for you. No external Git setup required.</td><td>Teams new to Git or preferring simplified workflows</td></tr><tr><td><strong>External Git</strong></td><td>Connect to GitHub, GitLab, or Bitbucket. You have full control over repository management.</td><td>Teams with existing Git workflows or complex CI/CD requirements</td></tr></tbody></table>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="git-storage-models">Git storage models<a href="#git-storage-models" class="hash-link" aria-label="Direct link to Git storage models" title="Direct link to Git storage models">​</a></h3>
 <p>Projects can leverage different Git storage models depending on your collaboration needs:</p>
 <table><thead><tr><th>Git Storage Model</th><th>Description</th><th>Best For</th></tr></thead><tbody><tr><td><strong>Simple workflow</strong> (SQL projects only)</td><td>Simplified save and publish process. Changes are still hosted on Git but abstracted in the project interface.</td><td>Data analysts and teams preferring visual workflows</td></tr><tr><td><strong>Normal workflow</strong></td><td>Standard Git branching and merging with full control over the development process.</td><td>Teams comfortable with Git workflows and branching strategies</td></tr><tr><td><strong>Fork per user</strong> (External Git only)</td><td>Each user works on their own fork of the repository, enabling isolated development.</td><td>Large teams requiring strict isolation between developers</td></tr></tbody></table>
