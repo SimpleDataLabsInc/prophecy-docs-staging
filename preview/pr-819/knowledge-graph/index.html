@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-819/assets/css/styles.d653e9cf.css">
-<script src="/prophecy-docs-staging/preview/pr-819/assets/js/runtime~main.471c92fe.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-819/assets/js/runtime~main.917151bb.js" defer="defer"></script>
 <script src="/prophecy-docs-staging/preview/pr-819/assets/js/main.21f8057f.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -20,7 +20,7 @@
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="overview">Overview<a href="#overview" class="hash-link" aria-label="Direct link to Overview" title="Direct link to Overview">​</a></h2>
 <p>Knowledge graphs are generated per <a href="/prophecy-docs-staging/preview/pr-819/fabrics">fabric</a> in Prophecy. Each knowledge graph contains information from fabrics and other entities, including the statistical usages of these entities. It also contains computed fields that further refine Copilot&#x27;s capabilities.</p>
 <p><img decoding="async" loading="lazy" alt="Knowledge Graph" src="/prophecy-docs-staging/preview/pr-819/assets/images/copilot_knowledge_graph-18e8a0c69b21f5b71875a485369ee716.png" width="2880" height="1868" class="img_ev3q"></p>
-<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>Your data itself is never stored in the knowledge graph. For more details, see <a href="/prophecy-docs-staging/preview/pr-819/prophecy-ai#security">Security</a>.</p></div></div>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>Your data is never stored in the knowledge graph. For more details, see <a href="/prophecy-docs-staging/preview/pr-819/prophecy-ai#security">Security</a>.</p></div></div>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="process">Process<a href="#process" class="hash-link" aria-label="Direct link to Process" title="Direct link to Process">​</a></h2>
 <p>When you interact with Copilot, Prophecy follows a multi-step process to generate what you need. First, Copilot enriches your prompt using the knowledge graph. This step adds detailed context about your project’s datasets, schemas, and other entities, which helps the agent understand what you&#x27;re referring to. The enhanced prompt is then sent to OpenAI’s large language model (LLM), which returns SQL code based on the provided context.</p>
 <p>Once the code is generated, Prophecy validates it and automatically corrects any errors when possible. After validation, Prophecy converts the code into a visual pipeline, which is displayed on the canvas for you to review and customize.</p>
