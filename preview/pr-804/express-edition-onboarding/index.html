@@ -8,8 +8,8 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-804/assets/css/styles.91a6e78f.css">
-<script src="/prophecy-docs-staging/preview/pr-804/assets/js/runtime~main.6be03718.js" defer="defer"></script>
-<script src="/prophecy-docs-staging/preview/pr-804/assets/js/main.cf1d5434.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-804/assets/js/runtime~main.4e28e97d.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-804/assets/js/main.ce389da2.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
@@ -51,12 +51,32 @@
 <p>You can create individual fabrics for different execution environments (for example, <code>dev</code> and <code>prod</code>).</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="optional-networking">Optional: Networking<a href="#optional-networking" class="hash-link" aria-label="Direct link to Optional: Networking" title="Direct link to Optional: Networking">​</a></h3>
 <p>Dedicated SaaS deployments run in Prophecy’s VPC. You may need to configure networking to allow Prophecy to communicate with your external services.</p>
-<p>For example, to connect to Databricks, you might need to configure <strong>Private Link</strong> or set up <strong>IP allowlists</strong>. To learn how to set up Private Link for Databricks, visit:</p>
+<p>For example, to connect to Databricks, you might need to configure <strong>Private Link</strong> or set up <strong>IP allowlists</strong>. To do so:</p>
+<ol>
+<li>
+<p>Follow the instructions to set up PrivateLink depending on the cloud platform where Databricks is hosted. During this process, Databricks creates VPC endpoints for the secure cluster connectivity relay and for the workspace.</p>
 <ul>
 <li><a href="https://docs.databricks.com/aws/en/security/network/classic/privatelink" target="_blank" rel="noopener noreferrer">Enable private connectivity using AWS PrivateLink</a></li>
 <li><a href="https://learn.microsoft.com/en-us/azure/databricks/security/network/classic/private-link" target="_blank" rel="noopener noreferrer">Enable Azure Private Link back-end and front-end connections</a></li>
 </ul>
-<p>After you set up Private Link, send your endpoint details to Prophecy Support so we can configure connectivity to our VPC.</p>
+</li>
+<li>
+<p>Share the following with Prophecy:</p>
+<ul>
+<li>Your Databricks workspace region.</li>
+<li>The VPC endpoint service names. Provide both the relay and workspace endpoints.</li>
+</ul>
+</li>
+<li>
+<p>Prophecy creates VPC endpoints in the Prophecy VPC that connect to those service names.</p>
+</li>
+<li>
+<p>Prophecy shares the Prophecy VPC endpoints with you.</p>
+</li>
+<li>
+<p>Whitelist the Prophecy endpoints in your Databricks configuration.</p>
+</li>
+</ol>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>Different connection types may have different networking requirements. If a connection fails, check that your networking configuration allows traffic between Prophecy and your external services.</p></div></div>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="workflow-migration">Workflow migration<a href="#workflow-migration" class="hash-link" aria-label="Direct link to Workflow migration" title="Direct link to Workflow migration">​</a></h2>
 <p>If you&#x27;re migrating from Alteryx, Prophecy Express Edition includes a transpiler to convert your existing workflows.</p>
