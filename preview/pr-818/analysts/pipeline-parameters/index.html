@@ -8,8 +8,8 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-818/assets/css/styles.d653e9cf.css">
-<script src="/prophecy-docs-staging/preview/pr-818/assets/js/runtime~main.6c8fa956.js" defer="defer"></script>
-<script src="/prophecy-docs-staging/preview/pr-818/assets/js/main.d66cab88.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-818/assets/js/runtime~main.7c937cea.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-818/assets/js/main.b0bef0b8.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
@@ -63,6 +63,22 @@
 <!-- -->In a Filter gem, you include code that uses the <code>include_archived</code> parameter to determine whether to include archived rows:</p>
 <div class="language-sql codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-sql codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">WHERE</span><span class="token plain"> archived </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> include_archived</span><br></span></code></pre></div></div>
 <p>Users running the Prophecy app can set <code>include_archived = true</code> to include historical records.</p>
+<p>First, you&#x27;ll set up an <code>include_archived</code> parameter, which will be a Boolean value.</p>
+<ol>
+<li>Open your project and select <strong>Parameters</strong> in the header.</li>
+<li>Click <strong>+ Add Parameter</strong>.</li>
+<li>Name the parameter <code>include_archived</code>.</li>
+<li>Select the <strong>Type</strong> and choose <strong>Boolean</strong>.</li>
+<li>Click <strong>Select expression &gt; Value</strong>.</li>
+<li>Click <strong>True</strong> and click <strong>Done</strong>.</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="use-the-boolean-parameter-in-an-expression">Use the Boolean parameter in an expression<a href="#use-the-boolean-parameter-in-an-expression" class="hash-link" aria-label="Direct link to Use the Boolean parameter in an expression" title="Direct link to Use the Boolean parameter in an expression">​</a></h4>
+<p>Now, you&#x27;ll use the Boolean parameter in an expression inside a Filter gem.</p>
+<ol>
+<li>Create and open a Filter gem.</li>
+<li>Remove the default <code>true</code> expression.</li>
+</ol>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="double-example">Double example<a href="#double-example" class="hash-link" aria-label="Direct link to Double example" title="Direct link to Double example">​</a></h3>
 <p>For doubles, you could create a pipeline parameter called <code>discount_rate</code> with a value of <code>0.15</code>. In a Formula gem, you apply it as <code>price * (1 - discount_rate)</code> to calculate discounted prices.</p>
 <p>When the pipeline runs, users can change the <code>discount_rate</code> to apply different percentages without editing the pipeline.</p>
