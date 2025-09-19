@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-818/assets/css/styles.91a6e78f.css">
-<script src="/prophecy-docs-staging/preview/pr-818/assets/js/runtime~main.49ea70f0.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-818/assets/js/runtime~main.4ca58766.js" defer="defer"></script>
 <script src="/prophecy-docs-staging/preview/pr-818/assets/js/main.277876a7.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -46,7 +46,7 @@
 <p>Example: If you create a parameter called <code>start_date</code> with a value of <em>2025-09-01</em>, you can use it in a Filter gem to include only rows where <code>order_date</code> &gt;= <code>start_date</code>. When the pipeline runs, it injects the parameter’s value into the filter expression.</p>
 </blockquote>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="use-parameters-in-prophecy-apps">Use parameters in Prophecy Apps<a href="#use-parameters-in-prophecy-apps" class="hash-link" aria-label="Direct link to Use parameters in Prophecy Apps" title="Direct link to Use parameters in Prophecy Apps">​</a></h2>
-<p>Parameters are useful in both <a href="/prophecy-docs-staging/preview/pr-818/analysts/create-business-applications">creating</a> and <a href="/prophecy-docs-staging/preview/pr-818/analysts/run-apps">consuming</a> Prophecy applications.</p>
+<p>Parameters are useful in both <a href="/prophecy-docs-staging/preview/pr-818/analysts/create-business-applications">creating</a> and <a href="/prophecy-docs-staging/preview/pr-818/analysts/run-apps">consuming</a> Prophecy applications. To use pipeline parameters in a Prophecy app, add an input field and select the pipeline parameter for <strong>Configuration field</strong>.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="array-example">Array example<a href="#array-example" class="hash-link" aria-label="Direct link to Array example" title="Direct link to Array example">​</a></h3>
 <p>Suppose you have a dataset with a column called <code>region</code>. You can use an <strong>Array</strong> pipeline parameter called <code>region_list</code> to filter rows that match one of several regions.</p>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-the-array-parameter">Create the Array parameter<a href="#create-the-array-parameter" class="hash-link" aria-label="Direct link to Create the Array parameter" title="Direct link to Create the Array parameter">​</a></h4>
@@ -164,7 +164,7 @@ In a Filter gem, you include code that uses the <code>include_archived</code> pa
 </ol>
 <p>Add <code>customer_reviews</code> and <code>archived_reviews</code> as Table gems.</p>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="use-the-boolean-parameter-in-an-expression">Use the Boolean parameter in an expression<a href="#use-the-boolean-parameter-in-an-expression" class="hash-link" aria-label="Direct link to Use the Boolean parameter in an expression" title="Direct link to Use the Boolean parameter in an expression">​</a></h4>
-<p>Next, you&#x27;ll create a Filter gem that uses the <code>include_archived</code> pipeline paramter in an expression.</p>
+<p>Next, you&#x27;ll create a Filter gem that uses the <code>include_archived</code> pipeline parameter in an expression.</p>
 <ol>
 <li>Create and open the Filter gem.</li>
 <li>Remove the default <code>true</code> expression.</li>
@@ -252,13 +252,13 @@ In a Filter gem, you include code that uses the <code>include_archived</code> pa
 <p>Add a Target table gem called <code>products_limited</code> and connect it to the Reformat gem</p>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-a-prophecy-app-to-adjust-record-limits">Create a Prophecy app to adjust record limits<a href="#create-a-prophecy-app-to-adjust-record-limits" class="hash-link" aria-label="Direct link to Create a Prophecy app to adjust record limits" title="Direct link to Create a Prophecy app to adjust record limits">​</a></h4>
 <ol>
-<li>Add a Prophecy app called <code>products_limited</code>.</li>
+<li>Add a Prophecy app called <code>products</code>.</li>
 <li>Add a title for the app.</li>
 <li>Select <strong>Interactive &gt; Number Input</strong>.</li>
 <li>Select <code>max_records</code> for <strong>Configuration field</strong>.</li>
 <li>Give the field a label, such as <strong>Maximum Rows</strong>.</li>
 <li>Open the <strong>Data Integration</strong> dropdown and select <strong>Data Preview</strong>.</li>
-<li>In the <strong>Inspect</strong> tab, choose <code>product_limited</code> for <strong>Data table</strong>.</li>
+<li>In the <strong>Inspect</strong> tab, choose <code>products_limited</code> for <strong>Data table</strong>.</li>
 <li>Select columns to display.</li>
 </ol>
 <p>When the app runs, users can increase or decrease the <code>max_records</code> value depending on their performance needs.</p>
