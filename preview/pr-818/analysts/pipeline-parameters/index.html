@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-818/assets/css/styles.91a6e78f.css">
-<script src="/prophecy-docs-staging/preview/pr-818/assets/js/runtime~main.4ca58766.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-818/assets/js/runtime~main.24a8a017.js" defer="defer"></script>
 <script src="/prophecy-docs-staging/preview/pr-818/assets/js/main.277876a7.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -230,38 +230,43 @@ In a Filter gem, you include code that uses the <code>include_archived</code> pa
 </ol>
 <p>When the app runs, users can enter their own rate in <code>discount_rate</code>.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="long-example">Long example<a href="#long-example" class="hash-link" aria-label="Direct link to Long example" title="Direct link to Long example">​</a></h3>
-<p>Suppose you have a dataset where you want to control how many rows are returned. You can create a <strong>Long</strong> pipeline parameter called <code>max_records</code> to set this limit.</p>
+<p>Use a <strong>Long</strong> pipeline parameter to set a monthly data cap (in MB) and flag or filter subscribers who exceed it.</p>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-the-long-parameter">Create the Long parameter<a href="#create-the-long-parameter" class="hash-link" aria-label="Direct link to Create the Long parameter" title="Direct link to Create the Long parameter">​</a></h4>
 <ol>
 <li>Open your project and select <strong>Parameters</strong> in the header.</li>
 <li>Click <strong>+ Add Parameter</strong>.</li>
-<li>Name the parameter <code>max_records</code>.</li>
+<li>Name the parameter <code>usage_cap_mb</code>.</li>
 <li>Select the <strong>Type</strong> and choose <strong>Long</strong>.</li>
 <li>Click <strong>Select expression &gt; Value</strong>.</li>
-<li>Enter <code>1000000</code> and click <strong>Done</strong>.</li>
+<li>Enter <code>50000</code> (≈ 50 GB) and click <strong>Done</strong>.</li>
 <li>Click <strong>Save</strong>.</li>
 </ol>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="use-the-long-parameter-in-a-gem">Use the Long parameter in a gem<a href="#use-the-long-parameter-in-a-gem" class="hash-link" aria-label="Direct link to Use the Long parameter in a gem" title="Direct link to Use the Long parameter in a gem">​</a></h4>
-<p>Next, you’ll create or edit a gem that uses the <code>max_records</code> parameter to cap the number of rows.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="compute-total-usage-per-subscriber-then-filter-with-the-long-parameter">Compute total usage per subscriber, then filter with the Long parameter<a href="#compute-total-usage-per-subscriber-then-filter-with-the-long-parameter" class="hash-link" aria-label="Direct link to Compute total usage per subscriber, then filter with the Long parameter" title="Direct link to Compute total usage per subscriber, then filter with the Long parameter">​</a></h4>
 <ol>
-<li>Add a <strong>Limit</strong> gem.</li>
-<li>In <strong>Limit Condition</strong>, start typing <code>max_records</code>.</li>
-<li>Select <code>max_records</code>. Prophecy fills in the <strong>Limit Condition</strong> field with <code>{{ var(&#x27;max_records&#x27;) }}</code>.</li>
+<li>Add an <strong>Aggregate</strong> gem after your events table (e.g., <code>telecom_usage</code>).</li>
+<li>Apply <strong>Group By</strong> to <code>subscriber_id</code>.</li>
+<li>Add <strong>Aggregations</strong>, that applies <code>SUM(usage_mb)</code> as <code>total_usage_mb</code></li>
 <li>Click <strong>Save</strong>.</li>
+<li>Add a <strong>Filter</strong> gem after the <strong>Aggregate</strong>.</li>
+<li>Remove the default <code>true</code> expression.</li>
+<li>Select <strong>Column &gt; total_usage_mb</strong>.</li>
+<li>Choose <strong>Greater than ( &gt; )</strong>.</li>
+<li>Click <strong>Select expression &gt; Configuration Variable</strong> and select <code>usage_cap_mb</code>.</li>
+<li>Click <strong>Save</strong>.</li>
+<li>Add a <strong>Table</strong> gem called <code>usage_over_cap</code> and connect it to the <strong>Filter</strong> gem.</li>
 </ol>
-<p>Add a Target table gem called <code>products_limited</code> and connect it to the Reformat gem</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-a-prophecy-app-to-adjust-record-limits">Create a Prophecy app to adjust record limits<a href="#create-a-prophecy-app-to-adjust-record-limits" class="hash-link" aria-label="Direct link to Create a Prophecy app to adjust record limits" title="Direct link to Create a Prophecy app to adjust record limits">​</a></h4>
+<p>This uses a <strong>Long</strong> parameter in a comparison (no Limit gem) to produce a dynamic list of subscribers over the cap.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-a-prophecy-app-to-adjust-the-cap">Create a Prophecy app to adjust the cap<a href="#create-a-prophecy-app-to-adjust-the-cap" class="hash-link" aria-label="Direct link to Create a Prophecy app to adjust the cap" title="Direct link to Create a Prophecy app to adjust the cap">​</a></h4>
 <ol>
-<li>Add a Prophecy app called <code>products</code>.</li>
+<li>Add a Prophecy app called <code>usage_cap_monitor</code>.</li>
 <li>Add a title for the app.</li>
 <li>Select <strong>Interactive &gt; Number Input</strong>.</li>
-<li>Select <code>max_records</code> for <strong>Configuration field</strong>.</li>
-<li>Give the field a label, such as <strong>Maximum Rows</strong>.</li>
-<li>Open the <strong>Data Integration</strong> dropdown and select <strong>Data Preview</strong>.</li>
-<li>In the <strong>Inspect</strong> tab, choose <code>products_limited</code> for <strong>Data table</strong>.</li>
-<li>Select columns to display.</li>
+<li>Select <code>usage_cap_mb</code> for <strong>Configuration field</strong> and label it <strong>Monthly Cap (MB)</strong>.</li>
+<li>Open <strong>Data Integration &gt; Data Preview</strong>.</li>
+<li>In the <strong>Inspect</strong> tab, choose <code>usage_over_cap</code> for <strong>Data table</strong>.</li>
+<li>Select columns to display (e.g., <code>subscriber_id</code>, <code>total_usage_mb</code>, <code>billing_period</code>).</li>
 </ol>
-<p>When the app runs, users can increase or decrease the <code>max_records</code> value depending on their performance needs.</p>
+<p>When the app runs, users can raise or lower the cap by changing <code>usage_cap_mb</code> to see which subscribers are affected.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="float-example">Float example<a href="#float-example" class="hash-link" aria-label="Direct link to Float example" title="Direct link to Float example">​</a></h3>
 <p>Suppose you have a dataset with a column called <code>sensor_temp</code>. You can use a <strong>Float</strong> pipeline parameter called <code>temperature_threshold</code> to filter out rows below a certain temperature.</p>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-the-float-parameter">Create the Float parameter<a href="#create-the-float-parameter" class="hash-link" aria-label="Direct link to Create the Float parameter" title="Direct link to Create the Float parameter">​</a></h4>
