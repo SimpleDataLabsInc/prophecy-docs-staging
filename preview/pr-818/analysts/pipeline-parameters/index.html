@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-818/assets/css/styles.91a6e78f.css">
-<script src="/prophecy-docs-staging/preview/pr-818/assets/js/runtime~main.24a8a017.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-818/assets/js/runtime~main.ab13a7af.js" defer="defer"></script>
 <script src="/prophecy-docs-staging/preview/pr-818/assets/js/main.277876a7.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -48,7 +48,7 @@
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="use-parameters-in-prophecy-apps">Use parameters in Prophecy Apps<a href="#use-parameters-in-prophecy-apps" class="hash-link" aria-label="Direct link to Use parameters in Prophecy Apps" title="Direct link to Use parameters in Prophecy Apps">​</a></h2>
 <p>Parameters are useful in both <a href="/prophecy-docs-staging/preview/pr-818/analysts/create-business-applications">creating</a> and <a href="/prophecy-docs-staging/preview/pr-818/analysts/run-apps">consuming</a> Prophecy applications. To use pipeline parameters in a Prophecy app, add an input field and select the pipeline parameter for <strong>Configuration field</strong>.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="array-example">Array example<a href="#array-example" class="hash-link" aria-label="Direct link to Array example" title="Direct link to Array example">​</a></h3>
-<p>Suppose you have a dataset with a column called <code>region</code>. You can use an <strong>Array</strong> pipeline parameter called <code>region_list</code> to filter rows that match one of several regions.</p>
+<p>This example uses a dataset with a column called <code>region</code>. You can use an <strong>Array</strong> pipeline parameter called <code>region_list</code> to filter rows that match one of several regions.</p>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-the-array-parameter">Create the Array parameter<a href="#create-the-array-parameter" class="hash-link" aria-label="Direct link to Create the Array parameter" title="Direct link to Create the Array parameter">​</a></h4>
 <ol>
 <li>Open your project and select <strong>Parameters</strong> in the header.</li>
@@ -79,17 +79,17 @@
 <li>Add options such as <code>US-East</code>, <code>US-West</code>, <code>Europe</code>, <code>Mexico</code>, <code>Brazil</code>, <code>LAC</code>, and <code>Andean</code>.</li>
 <li>Open the <strong>Data Integration</strong> dropdown and select <strong>Data Preview</strong>.</li>
 <li>In the <strong>Inspect</strong> tab, choose your filtered dataset table.</li>
-<li>Select the columns to display.</li>
+<li>Select columns to display.</li>
 </ol>
-<p>When the app runs, users can substitute values for <code>region_list</code>. For example, a sales team in Latin America might set <code>[&#x27;Mexico&#x27;,&#x27;LAC&#x27;,&#x27;Brazil&#x27;,&#x27;Andean&#x27;]</code> to view their focus regions.</p>
+<p>When the app runs, users can substitute values for <code>region_list</code>. For example, a sales team in Latin America might enter <code>[&#x27;Mexico&#x27;,&#x27;LAC&#x27;,&#x27;Brazil&#x27;,&#x27;Andean&#x27;]</code> to view their focus regions.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="date-example">Date example<a href="#date-example" class="hash-link" aria-label="Direct link to Date example" title="Direct link to Date example">​</a></h3>
-<p>Suppose you want to create an application that shows sales data for a specific date range, such as a weekly or monthly snapshot. You can use two <strong>Date</strong> pipeline parameters: <code>start_date</code> and <code>end_date</code>.</p>
+<p>This example uses a dataset with timestamped sales data. You can use two <strong>Date</strong> pipeline parameters, <code>start_date</code> and <code>end_date</code> to configure a snapshot of sales data by a time period such as week or month.</p>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-the-date-parameters">Create the Date parameters<a href="#create-the-date-parameters" class="hash-link" aria-label="Direct link to Create the Date parameters" title="Direct link to Create the Date parameters">​</a></h4>
 <ol>
-<li>Open your project and select <strong>Parameters</strong> in the header.</li>
+<li>Open your pipeline and select <strong>Parameters</strong> in the header.</li>
 <li>Click <strong>+ Add Parameter</strong>.</li>
 <li>Name the parameter <code>start_date</code>.</li>
-<li>Select the <strong>Type</strong> and choose <strong>Date</strong>.</li>
+<li>Select <strong>Type</strong> and choose <strong>Date</strong>.</li>
 <li>Click <strong>Select expression &gt; Value</strong>.</li>
 <li>Enter <code>09/01/2025</code> (or another default start date) and click <strong>Done</strong>.</li>
 <li>Click <strong>Save</strong>.</li>
@@ -99,21 +99,26 @@
 <ol>
 <li>Add a <strong>Filter</strong> gem to your pipeline.</li>
 <li>Remove the default <code>true</code> expression.</li>
-<li>Select <strong>Column &gt; sales_date</strong> (or your dataset’s date column).</li>
+<li>Select <strong>Column</strong> and select <code>sales_date</code> (or your dataset’s date column).</li>
 <li>Add an expression such as <code>sales_date &gt;= start_date AND sales_date &lt;= end_date</code>.</li>
 <li>For both <code>start_date</code> and <code>end_date</code>, click <strong>Select expression &gt; Configuration Variable</strong> and select the corresponding parameter.</li>
+<li>Add a Target table gem called <code>snapshot_by_date</code> and connect it to the Filter gem.</li>
 <li>Click <strong>Save</strong>.</li>
 </ol>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-a-prophecy-app-with-date-fields">Create a Prophecy app with date fields<a href="#create-a-prophecy-app-with-date-fields" class="hash-link" aria-label="Direct link to Create a Prophecy app with date fields" title="Direct link to Create a Prophecy app with date fields">​</a></h4>
 <ol>
 <li>Add a Prophecy app called <code>sales_snapshot</code>.</li>
-<li>Add a title for the app.</li>
+<li>Add a title.</li>
 <li>Select <strong>Interactive &gt; Date Field</strong>.</li>
 <li>For <strong>Configuration field</strong>, choose <code>start_date</code>.</li>
 <li>Add another <strong>Date Field</strong> and select <code>end_date</code>.</li>
+<li>Open the <strong>Data Integration</strong> dropdown and select <strong>Data Preview</strong>.</li>
+<li>In the <strong>Inspect</strong> tab, choose <code>snapshot_by_date</code>.</li>
+<li>Select columns to display.</li>
 </ol>
+<p>When the app runs, users can enter their own values for <code>start_date</code> and <code>end_date</code>.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="string-example">String example<a href="#string-example" class="hash-link" aria-label="Direct link to String example" title="Direct link to String example">​</a></h3>
-<p>Suppose you have a dataset with a column called <code>customer_category</code>. You can use a <strong>String</strong> pipeline parameter called <code>customer_type</code> to filter rows for a specific group of customers.</p>
+<p>This example uses a dataset with a column called <code>customer_category</code> with values such as <code>Premium</code>, <code>Basic</code>, and <code>Standard</code>. You can use a <strong>String</strong> pipeline parameter called <code>customer_type</code> to filter rows for a specific group of customers.</p>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-the-string-parameter">Create the String parameter<a href="#create-the-string-parameter" class="hash-link" aria-label="Direct link to Create the String parameter" title="Direct link to Create the String parameter">​</a></h4>
 <ol>
 <li>Open your project and select <strong>Parameters</strong> in the header.</li>
@@ -133,6 +138,7 @@
 <li>Choose the <strong>Equals ( = )</strong> operator.</li>
 <li>Click <strong>Select expression &gt; Configuration Variable</strong>.</li>
 <li>Select <code>customer_type</code>.</li>
+<li>Add a Target table gem called <code>filtered_customers</code> and connect it to the Reformat gem.</li>
 <li>Click <strong>Save</strong>.</li>
 </ol>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-a-prophecy-app-to-select-customer-groups">Create a Prophecy app to select customer groups<a href="#create-a-prophecy-app-to-select-customer-groups" class="hash-link" aria-label="Direct link to Create a Prophecy app to select customer groups" title="Direct link to Create a Prophecy app to select customer groups">​</a></h4>
@@ -143,15 +149,12 @@
 <li>Give the dropdown a label.</li>
 <li>Select <code>customer_type</code> for <strong>Configuration field</strong>.</li>
 <li>Open the <strong>Data Integration</strong> dropdown and select <strong>Data Preview</strong>.</li>
-<li>In the <strong>Inspect</strong> tab, choose your filtered dataset table.</li>
+<li>In the <strong>Inspect</strong> tab, choose <code>filtered_customers</code>.</li>
 <li>Select the columns to display.</li>
 </ol>
 <p>When the app runs, users can switch the <code>customer_type</code> parameter from <code>Premium</code> to <code>Standard</code> (or another category) to explore different customer groups.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="boolean-example">Boolean example<a href="#boolean-example" class="hash-link" aria-label="Direct link to Boolean example" title="Direct link to Boolean example">​</a></h3>
-<p>Suppose you have two datasets, one with current reviews called <code>customer_reviews</code> and one with archived reviews called <code>archived_reviews</code>. You can use a Boolean pipeline parameter to create a Prophecy app that lets users choose whether to include archived reviews.</p>
-<p>For Boolean values, you could create a pipeline parameter called <code>include_archived</code> with a value of <code>false</code>.
-In a Filter gem, you include code that uses the <code>include_archived</code> parameter to determine whether to include archived rows:</p>
-<p>Users running the Prophecy app can set <code>include_archived = true</code> to include historical records.</p>
+<p>This example uses a dataset of customer reviews, in which reviews older than 5 years are designated as <code>archived</code>, using a column called <code>archived_reviews</code> with Boolean values. You can use a Boolean pipeline parameter to create a Prophecy app that lets users choose whether to include archived reviews.</p>
 <p>First, you&#x27;ll set up an <code>include_archived</code> parameter, which will be a Boolean value.</p>
 <ol>
 <li>Open your project and select <strong>Parameters</strong> in the header.</li>
@@ -162,41 +165,32 @@ In a Filter gem, you include code that uses the <code>include_archived</code> pa
 <li>Click <strong>False</strong> and click <strong>Done</strong>.</li>
 <li>Click <strong>Save</strong>.</li>
 </ol>
-<p>Add <code>customer_reviews</code> and <code>archived_reviews</code> as Table gems.</p>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="use-the-boolean-parameter-in-an-expression">Use the Boolean parameter in an expression<a href="#use-the-boolean-parameter-in-an-expression" class="hash-link" aria-label="Direct link to Use the Boolean parameter in an expression" title="Direct link to Use the Boolean parameter in an expression">​</a></h4>
 <p>Next, you&#x27;ll create a Filter gem that uses the <code>include_archived</code> pipeline parameter in an expression.</p>
 <ol>
-<li>Create and open the Filter gem.</li>
+<li>Create and open the <strong>Filter</strong> gem.</li>
 <li>Remove the default <code>true</code> expression.</li>
 <li>Click <strong>Select expression &gt; Column</strong> and select <code>archived</code>.</li>
 <li>In the <strong>Select operator</strong> dropdown, select <strong>equals</strong>.</li>
 <li>In the <strong>Select expression</strong> dropdown of the Filter condition, select <strong>Configuration variable</strong> and select <code>include_archived</code>.</li>
+<li>Add a Target table gem called <code>prod_filtered_archived</code> and connect it to the Filter gem.</li>
 <li>Click <strong>Save</strong>.</li>
-<li>Connect the Filter gem to <code>archived_reviews</code>.</li>
 </ol>
 <p>The output of this gem will only include rows where <code>include_archived</code> is false. In the steps below, you&#x27;ll create a Prophecy app that lets users change <code>include_archived</code> to true.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="add-a-unionbyname-gem">Add a UnionByName gem<a href="#add-a-unionbyname-gem" class="hash-link" aria-label="Direct link to Add a UnionByName gem" title="Direct link to Add a UnionByName gem">​</a></h4>
-<ol>
-<li>Create and open the UnionByName gem.</li>
-<li>Select <strong>Union By Name (Allow Missing Columns)</strong> (it should be selected by default).</li>
-<li>Connect the <code>customer_reviews</code> table and the Filter gem to the UnionByName gem.</li>
-</ol>
-<p>This step combines filtered rows from <code>archived_reviews</code> with rows from <code>customer_reviews</code>.</p>
-<p>Add a Target table gem called <code>filtered_reviews</code> and connect it to the UnionByName gem.</p>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-a-prophecy-app-to-show-archived-data">Create a Prophecy app to show archived data<a href="#create-a-prophecy-app-to-show-archived-data" class="hash-link" aria-label="Direct link to Create a Prophecy app to show archived data" title="Direct link to Create a Prophecy app to show archived data">​</a></h4>
 <ol>
 <li>Add a Prophecy app called Reviews.</li>
-<li>Add a Title for the app.</li>
-<li>Add a Toggle that uses <code>include_archived</code> as a Configuration field, with a label reading <code>Include archived reviews?</code>.</li>
+<li>Add a <strong>Title</strong> for the app.</li>
+<li>Add a <strong>Toggle</strong> that uses <code>include_archived</code> as a <strong>Configuration</strong> field, with a label reading <code>Include archived reviews?</code>.</li>
 <li>Open the <strong>Data Integration</strong> dropdown and select <strong>Data Preview</strong>.</li>
-<li>In the Inspect tab, select <code>filtered_reviews</code> for <strong>Data table</strong>.</li>
+<li>In the <strong>Inspect</strong> tab, chooses <code>prod_filtered_archived</code> for <strong>Data table</strong>.</li>
 <li>Select columns to display.</li>
 </ol>
 <p>When the app runs, users can toggle <code>Include archived reviews?</code> to include archived reviews in results.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="double-example">Double example<a href="#double-example" class="hash-link" aria-label="Direct link to Double example" title="Direct link to Double example">​</a></h3>
-<p>Suppose you have a dataset that includes a column called <code>discount_rate</code> that applies a discount for customers in certain cases.</p>
+<p>This example uses a dataset that includes a column called <code>discount_rate</code> that applies a discount for customers in certain cases.</p>
 <p>You can use a Double pipeline parameter to create a Prophecy app that lets users adjust this rate.</p>
-<p>First, you&#x27;ll set up a <code>discount_rate</code> parameter, which will be a Double value.</p>
+<p>First, you&#x27;ll set up a <code>discount_rate</code> parameter, which will be a <code>Double</code> value.</p>
 <ol>
 <li>Open your project and select <strong>Parameters</strong> in the header.</li>
 <li>Click <strong>+ Add Parameter</strong>.</li>
@@ -209,14 +203,14 @@ In a Filter gem, you include code that uses the <code>include_archived</code> pa
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="use-the-double-parameter-in-an-expression">Use the Double parameter in an expression<a href="#use-the-double-parameter-in-an-expression" class="hash-link" aria-label="Direct link to Use the Double parameter in an expression" title="Direct link to Use the Double parameter in an expression">​</a></h4>
 <p>Next, you&#x27;ll create a Reformat gem that uses the <code>discount_rate</code> pipeline parameter in an expression.</p>
 <ol>
-<li>Create and open the Reformat gem.</li>
+<li>Create and open the <a href="/prophecy-docs-staging/preview/pr-818/analysts/reformat">Reformat gem</a>.</li>
 <li>Remove the default <code>true</code> expression.</li>
 <li>Select <strong>Column &gt; price</strong></li>
 <li>Click <strong>Select expression &gt; Configuration Variable</strong>.</li>
 <li>Select <code>discount_rate</code>.</li>
+<li>Add a Target table gem called <code>products_discounted</code> and connect it to the Reformat gem.</li>
 <li>Click <strong>Save</strong>.</li>
 </ol>
-<p>Add a Target table gem called <code>products_discounted</code> and connect it to the Reformat gem.</p>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-a-prophecy-app-to-show-discounted-products">Create a Prophecy app to show discounted products<a href="#create-a-prophecy-app-to-show-discounted-products" class="hash-link" aria-label="Direct link to Create a Prophecy app to show discounted products" title="Direct link to Create a Prophecy app to show discounted products">​</a></h4>
 <ol>
 <li>Add a Prophecy app called <code>products_with_reviews</code>.</li>
@@ -228,9 +222,9 @@ In a Filter gem, you include code that uses the <code>include_archived</code> pa
 <li>In the Inspect tab, select <code>products_discounted</code> for <strong>Data table</strong>.</li>
 <li>Select columns to display.</li>
 </ol>
-<p>When the app runs, users can enter their own rate in <code>discount_rate</code>.</p>
+<p>When the app runs, users can enter their own rate for <code>discount_rate</code>.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="long-example">Long example<a href="#long-example" class="hash-link" aria-label="Direct link to Long example" title="Direct link to Long example">​</a></h3>
-<p>Use a <strong>Long</strong> pipeline parameter to set a monthly data cap (in MB) and flag or filter subscribers who exceed it.</p>
+<p>This example uses a dataset for a telecom company that includes aggregated usage data by month. You can use a <code>Long</code> pipeline parameter to set a monthly data cap in MB and flag or filter subscribers who exceed it.</p>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-the-long-parameter">Create the Long parameter<a href="#create-the-long-parameter" class="hash-link" aria-label="Direct link to Create the Long parameter" title="Direct link to Create the Long parameter">​</a></h4>
 <ol>
 <li>Open your project and select <strong>Parameters</strong> in the header.</li>
@@ -238,24 +232,19 @@ In a Filter gem, you include code that uses the <code>include_archived</code> pa
 <li>Name the parameter <code>usage_cap_mb</code>.</li>
 <li>Select the <strong>Type</strong> and choose <strong>Long</strong>.</li>
 <li>Click <strong>Select expression &gt; Value</strong>.</li>
-<li>Enter <code>50000</code> (≈ 50 GB) and click <strong>Done</strong>.</li>
+<li>Enter <code>50000</code> and click <strong>Done</strong>.</li>
 <li>Click <strong>Save</strong>.</li>
 </ol>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="compute-total-usage-per-subscriber-then-filter-with-the-long-parameter">Compute total usage per subscriber, then filter with the Long parameter<a href="#compute-total-usage-per-subscriber-then-filter-with-the-long-parameter" class="hash-link" aria-label="Direct link to Compute total usage per subscriber, then filter with the Long parameter" title="Direct link to Compute total usage per subscriber, then filter with the Long parameter">​</a></h4>
 <ol>
-<li>Add an <strong>Aggregate</strong> gem after your events table (e.g., <code>telecom_usage</code>).</li>
-<li>Apply <strong>Group By</strong> to <code>subscriber_id</code>.</li>
-<li>Add <strong>Aggregations</strong>, that applies <code>SUM(usage_mb)</code> as <code>total_usage_mb</code></li>
-<li>Click <strong>Save</strong>.</li>
-<li>Add a <strong>Filter</strong> gem after the <strong>Aggregate</strong>.</li>
+<li>Add a <strong>Filter</strong> gem.</li>
 <li>Remove the default <code>true</code> expression.</li>
 <li>Select <strong>Column &gt; total_usage_mb</strong>.</li>
 <li>Choose <strong>Greater than ( &gt; )</strong>.</li>
 <li>Click <strong>Select expression &gt; Configuration Variable</strong> and select <code>usage_cap_mb</code>.</li>
-<li>Click <strong>Save</strong>.</li>
 <li>Add a <strong>Table</strong> gem called <code>usage_over_cap</code> and connect it to the <strong>Filter</strong> gem.</li>
+<li>Click <strong>Save</strong>.</li>
 </ol>
-<p>This uses a <strong>Long</strong> parameter in a comparison (no Limit gem) to produce a dynamic list of subscribers over the cap.</p>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-a-prophecy-app-to-adjust-the-cap">Create a Prophecy app to adjust the cap<a href="#create-a-prophecy-app-to-adjust-the-cap" class="hash-link" aria-label="Direct link to Create a Prophecy app to adjust the cap" title="Direct link to Create a Prophecy app to adjust the cap">​</a></h4>
 <ol>
 <li>Add a Prophecy app called <code>usage_cap_monitor</code>.</li>
@@ -268,7 +257,7 @@ In a Filter gem, you include code that uses the <code>include_archived</code> pa
 </ol>
 <p>When the app runs, users can raise or lower the cap by changing <code>usage_cap_mb</code> to see which subscribers are affected.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="float-example">Float example<a href="#float-example" class="hash-link" aria-label="Direct link to Float example" title="Direct link to Float example">​</a></h3>
-<p>Suppose you have a dataset with a column called <code>sensor_temp</code>. You can use a <strong>Float</strong> pipeline parameter called <code>temperature_threshold</code> to filter out rows below a certain temperature.</p>
+<p>This example uses dataset of sensor data with a column called <code>sensor_temp</code>. You can use a <strong>Float</strong> pipeline parameter called <code>temperature_threshold</code> to filter out rows below a certain temperature.</p>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-the-float-parameter">Create the Float parameter<a href="#create-the-float-parameter" class="hash-link" aria-label="Direct link to Create the Float parameter" title="Direct link to Create the Float parameter">​</a></h4>
 <ol>
 <li>Open your project and select <strong>Parameters</strong> in the header.</li>
@@ -288,9 +277,9 @@ In a Filter gem, you include code that uses the <code>include_archived</code> pa
 <li>Choose the <strong>Greater than ( &gt; )</strong> operator.</li>
 <li>Click <strong>Select expression &gt; Configuration Variable</strong>.</li>
 <li>Select <code>temperature_threshold</code>.</li>
+<li>Add a Table gem called <code>filtered_temperature</code> and connect it to the Filter gem.</li>
 <li>Click <strong>Save</strong>.</li>
 </ol>
-<p>Add a Table gem called <code>filtered_temperature</code> and connect it to the Filter gem.</p>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-a-prophecy-app-to-adjust-sensitivity">Create a Prophecy app to adjust sensitivity<a href="#create-a-prophecy-app-to-adjust-sensitivity" class="hash-link" aria-label="Direct link to Create a Prophecy app to adjust sensitivity" title="Direct link to Create a Prophecy app to adjust sensitivity">​</a></h4>
 <ol>
 <li>Add a Prophecy app called <code>temperature_monitor</code>.</li>
