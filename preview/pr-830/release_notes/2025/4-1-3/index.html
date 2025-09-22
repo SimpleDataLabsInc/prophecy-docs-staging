@@ -7,9 +7,9 @@
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-830/assets/css/styles.d653e9cf.css">
-<script src="/prophecy-docs-staging/preview/pr-830/assets/js/runtime~main.b954c5bf.js" defer="defer"></script>
-<script src="/prophecy-docs-staging/preview/pr-830/assets/js/main.25265bab.js" defer="defer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-830/assets/css/styles.91a6e78f.css">
+<script src="/prophecy-docs-staging/preview/pr-830/assets/js/runtime~main.78e47bce.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-830/assets/js/main.adc281d0.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
@@ -84,6 +84,13 @@
 </li>
 </ul>
 </li>
+<li>
+<p>XLSX (Excel) Source and Target gems have been enhanced (Added in 4.1.3.10):</p>
+<ul>
+<li>Read from multiple sheets in a single Excel file and union all rows into one output table.</li>
+<li>Write to multiple sheets by providing a column whose values are target sheet names. Sheets are created if they don’t exist.</li>
+</ul>
+</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="prophecy-for-engineers">Prophecy for Engineers<a href="#prophecy-for-engineers" class="hash-link" aria-label="Direct link to Prophecy for Engineers" title="Direct link to Prophecy for Engineers">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="engineer-features">Features<a href="#engineer-features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
@@ -105,13 +112,6 @@
 </li>
 <li>
 <p>When configuring a Databricks job size in Prophecy, you can now set the cluster access mode to <strong>Auto</strong> (Added in 4.1.3.3). This aligns with recent Databricks changes around cluster access modes. Note that pipeline behavior may vary depending on the cluster Databricks allocates.</p>
-</li>
-<li>
-<p>The Xlsx (Excel) Source and Target gem has been enhanced (Added in 4.1.3.9):</p>
-<ul>
-<li>You can now read multiple sheets from a single excel file.</li>
-<li>You can now create multiple sheets during a write operation by providing a column that includes the name of the sheet that the row should be added to.</li>
-</ul>
 </li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="prophecy-library-versions">Prophecy Library versions<a href="#prophecy-library-versions" class="hash-link" aria-label="Direct link to Prophecy Library versions" title="Direct link to Prophecy Library versions">​</a></h3>
