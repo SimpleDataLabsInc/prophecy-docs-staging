@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-834/assets/css/styles.91a6e78f.css">
-<script src="/prophecy-docs-staging/preview/pr-834/assets/js/runtime~main.1a3be411.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-834/assets/js/runtime~main.60c4fbc9.js" defer="defer"></script>
 <script src="/prophecy-docs-staging/preview/pr-834/assets/js/main.2a951bad.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -32,24 +32,20 @@
 <p>During deployment, you configure the environment, such as selecting the appropriate compute resources, scheduling execution times, and ensuring the pipeline is connected to the necessary data sources and destinations. You also choose which version of the pipeline will be deployed.</p>
 <p>When your pipelines are deployed, you can make sure they run as expected using our built-in <a href="/prophecy-docs-staging/preview/pr-834/analysts/monitoring">monitoring</a> feature.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="ensuring-data-is-consistently-written-in-egress">Ensuring data is consistently written in egress<a href="#ensuring-data-is-consistently-written-in-egress" class="hash-link" aria-label="Direct link to Ensuring data is consistently written in egress" title="Direct link to Ensuring data is consistently written in egress">​</a></h2>
-<p>Egress may involve writing to external systems or writing to Prophecy fabrics. Because of the nature of distributed systems, it&#x27;s important to understand key principles of writing data consistently: atomicity, transactionality, and idempotency.</p>
-<ul>
-<li><strong>Atomicity</strong> prevents half-finished results.</li>
-<li><strong>Transactionality</strong> ensures grouped steps succeed or fail together.</li>
-<li><strong>Idempotency</strong> makes retries and re-runs safe.</li>
-</ul>
+<p>Egress may involve writing to warehouse tables within a Prophecy fabric or to external systems. When you write to a warehouse table, data transfer is <em>transactional</em>, meaning that transactions are guaranteed to succeed. When you write to external systems, you should implement practices to ensure that data is written consistently, or <em>idempotently</em>.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="atomicity-and-transactionality">Atomicity and transactionality<a href="#atomicity-and-transactionality" class="hash-link" aria-label="Direct link to Atomicity and transactionality" title="Direct link to Atomicity and transactionality">​</a></h3>
 <p>Atomicity means that each operation either succeeds completely or makes no changes. This prevents pipelines from producing partial or inconsistent outputs.</p>
 <p>Transactionality extends atomicity to a group of transactions, such that multiple operations are grouped into a single unit. Just as atomicity mandates that each <em>operation</em> either succeeds completely or makes no changes, transactionality mandates that an entire <em>group of transactions</em> either succeed completely or make no changes. That is, the group of transactions either all succeed or all fail and roll back together. Atomicity is a prerequisite for transactionality, in that individual transactions must function atomically in order for a group of operations to be considered transactional.</p>
-<p>In order for Prophecy Pipelines to be fully transactional, you must</p>
+<p>In order to perform a transactional write in Prophecy, you must</p>
 <ol>
-<li>Write only to <a href="/prophecy-docs-staging/preview/pr-834/administration/fabrics/prophecy-fabrics/">Prophecy fabric</a> target tables.</li>
+<li>Write only to <a href="/prophecy-docs-staging/preview/pr-834/analysts/source-target">Data warehouse tables using a Table gem</a>.</li>
 <li>Avoid incorporating <a href="/prophecy-docs-staging/preview/pr-834/administration/fabrics/prophecy-fabrics/connections/sftp">FTP</a> delete or move.</li>
 </ol>
+<p>When <em>ingesting</em> data from any source other than a Table gem, it is best practice to set up a target table gem in order to write data to a Data warehouse table. That way, your data is safely stored within the fabric that you&#x27;ve set up.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="idempotency">Idempotency<a href="#idempotency" class="hash-link" aria-label="Direct link to Idempotency" title="Direct link to Idempotency">​</a></h3>
-<p>Idempotency means re-running a pipeline with the same inputs leaves the target table or warehouse in the same end state. Without idempotency, you may produce, duplicate rows or inconsistent states.</p>
+<p>Idempotency means re-running a pipeline with the same inputs leaves the target table or warehouse in the same end state. Without idempotency, you may produce duplicate rows or inconsistent states. Following the practice described below will ensure that data is written idempotently.</p>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="idempotency-quick-rules-for-prophecy-pipelines">Idempotency quick rules for Prophecy pipelines<a href="#idempotency-quick-rules-for-prophecy-pipelines" class="hash-link" aria-label="Direct link to Idempotency quick rules for Prophecy pipelines" title="Direct link to Idempotency quick rules for Prophecy pipelines">​</a></h4>
-<table><thead><tr><th>Write Pattern</th><th>Idempotent?</th><th>Notes</th></tr></thead><tbody><tr><td><strong>Append / Insert</strong> (to a table or file)</td><td>Never</td><td>Re-runs add duplicate rows.</td></tr><tr><td><strong>Merge / Upsert</strong></td><td>If keys and predicate are correct</td><td>Use a stable <code>unique_key</code>. Equivalent to Prophecy’s <em>Merge</em> write.</td></tr><tr><td><strong>Destructive Load</strong> (truncate+insert / create-or-replace / swap)</td><td>If SELECT is deterministic</td><td>Safe as long as the SELECT doesn’t use random or time-based functions.</td></tr><tr><td><strong>Incremental Insert Overwrite</strong> (+ <code>partition_by</code>)</td><td>Per partition, if your WHERE/partition filtering is deterministic and only rewrites the intended partitions.</td><td>Only targeted partitions are rewritten.</td></tr></tbody></table>
+<table><thead><tr><th>Write Pattern</th><th>Idempotent?</th><th>Notes</th></tr></thead><tbody><tr><td><strong>Append / Insert</strong> (to a table or file)</td><td>Never</td><td>Re-runs add duplicate rows.</td></tr><tr><td><strong>Merge / Upsert</strong></td><td>If keys and predicate are correct</td><td>Use a stable <code>unique_key</code> with Prophecy’s <em>Merge</em> write.</td></tr><tr><td><strong>Destructive Load</strong> (truncate+insert / create-or-replace / swap)</td><td>If SELECT is deterministic</td><td>Safe as long as the SELECT doesn’t use random or time-based functions.</td></tr><tr><td><strong>Incremental Insert Overwrite</strong> (+ <code>partition_by</code>)</td><td>Per partition, if your WHERE/partition filtering is deterministic and only rewrites the intended partitions.</td><td>Only targeted partitions are rewritten.</td></tr></tbody></table>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="what-breaks-idempotency">What breaks idempotency<a href="#what-breaks-idempotency" class="hash-link" aria-label="Direct link to What breaks idempotency" title="Direct link to What breaks idempotency">​</a></h4>
 <p>Watch for operations that appear to be safe but are not:</p>
 <ul>
@@ -62,7 +58,7 @@
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="merge--upsert">Merge / Upsert<a href="#merge--upsert" class="hash-link" aria-label="Direct link to Merge / Upsert" title="Direct link to Merge / Upsert">​</a></h4>
 <p>Ensure that the <code>unique_key</code> is truly unique and stable. Prefer natural/business keys or durable surrogate keys. Avoid run-time values in UPDATE/INSERT sets unless explicitly required. Use <strong>data-driven filters</strong> (such as <code>updated_at &gt; (select max(updated_at) from {{ this }})</code>), not “time of run.”</p>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="destructive-loads">Destructive Loads<a href="#destructive-loads" class="hash-link" aria-label="Direct link to Destructive Loads" title="Direct link to Destructive Loads">​</a></h4>
-<p>Avoid persisting run timestamps or sequence values in target tables. If you need lineage, capture it separately in an <strong>audit table</strong>.</p>
+<p>Avoid persisting run timestamps or sequence values in target tables. If you need lineage, capture it separately in an audit table.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="whats-next">What&#x27;s next<a href="#whats-next" class="hash-link" aria-label="Direct link to What&#x27;s next" title="Direct link to What&#x27;s next">​</a></h2>
 <p>Learn about different types of pipeline development:</p>
 <ul>
