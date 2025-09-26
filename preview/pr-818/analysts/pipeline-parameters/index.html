@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-818/assets/css/styles.91a6e78f.css">
-<script src="/prophecy-docs-staging/preview/pr-818/assets/js/runtime~main.e93c73ed.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-818/assets/js/runtime~main.0e53fe3e.js" defer="defer"></script>
 <script src="/prophecy-docs-staging/preview/pr-818/assets/js/main.277876a7.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -71,7 +71,7 @@
 <li>Remove the default <code>true</code> expression.</li>
 <li>Click <strong>Select expression</strong>.</li>
 <li>Select <strong>Function &gt; Array &gt; array_contains</strong>.</li>
-<li>Choose <strong>value &gt; Configuration Variable</strong></li>
+<li>Choose <strong>value &gt; Configuration Variable</strong>.</li>
 <li>Select <code>region_list</code>.</li>
 <li>Click <strong>+</strong> to add an argument for <code>array_contains</code> and choose <code>Region</code>.</li>
 <li>Click <strong>Save</strong>.</li>
@@ -193,14 +193,14 @@
 <li>Add a <strong>Title</strong> for the app.</li>
 <li>Add a <strong>Toggle</strong> that uses <code>include_archived</code> as a <strong>Configuration</strong> field, with a label reading <code>Include archived reviews?</code>.</li>
 <li>Open the <strong>Data Integration</strong> dropdown and select <strong>Data Preview</strong>.</li>
-<li>In the <strong>Inspect</strong> tab, chooses <code>prod_filtered_archived</code> for <strong>Data table</strong>.</li>
+<li>In the <strong>Inspect</strong> tab, choose <code>prod_filtered_archived</code> for <strong>Data table</strong>.</li>
 <li>Select columns to display.</li>
 </ol>
 <p>When the app runs, users can toggle <code>Include archived reviews?</code> to include archived reviews in results.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="double-example">Double example<a href="#double-example" class="hash-link" aria-label="Direct link to Double example" title="Direct link to Double example">​</a></h3>
 <p>This example uses a dataset that includes a column called <code>discount_rate</code> that applies a discount for customers in certain cases.</p>
 <p>You can use a Double pipeline parameter to create a Prophecy app that lets users adjust this rate.</p>
-<p>First, you&#x27;ll set up a <code>discount_rate</code> parameter, which will be a <code>Double</code> value.</p>
+<p>First, you&#x27;ll set up a <code>discount_rate</code> parameter of type <code>Double</code>.</p>
 <ol>
 <li>Open your project and select <strong>Parameters</strong> in the header.</li>
 <li>Click <strong>+ Add Parameter</strong>.</li>
