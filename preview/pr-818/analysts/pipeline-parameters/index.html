@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-818/assets/css/styles.91a6e78f.css">
-<script src="/prophecy-docs-staging/preview/pr-818/assets/js/runtime~main.fe7594d7.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-818/assets/js/runtime~main.fb54ff56.js" defer="defer"></script>
 <script src="/prophecy-docs-staging/preview/pr-818/assets/js/main.277876a7.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -33,7 +33,7 @@
 <li>Choose a data type (such as <code>array</code>, <code>date</code>, <code>string</code>, <code>int</code>, or <code>float</code>) that matches the parameter&#x27;s use.</li>
 <li>Enter a value, or use a function or expression that computes the parameter&#x27;s value. By default, these values are used during interactive execution. However, you can override the default values in certain areas like <a href="/prophecy-docs-staging/preview/pr-818/analysts/business-applications">Prophecy App configs</a> and <a href="/prophecy-docs-staging/preview/pr-818/analysts/pipeline-trigger-gem">Pipeline gems</a>.</li>
 </ol>
-<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>When you define parameters, variables will be automatically created in the SQL configuration.</p></div></div>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>When you define parameters, variables are automatically created in the SQL configuration.</p></div></div>
 <details class="details_lb9f alert alert--info details_b_Ee" data-collapsed="true"><summary>Expand to see the list of supported data types</summary><div><div class="collapsibleContent_i85q"><p>Prophecy supports the following data types for pipeline parameters:</p><table><thead><tr><th>Data type</th><th>Description</th></tr></thead><tbody><tr><td>Array</td><td>A list of values of the same type, added one by one in a multi-value input field.</td></tr><tr><td>Date</td><td>A calendar date in <code>dd-mm-yyyy</code> format, chosen using a date picker.</td></tr><tr><td>String</td><td>A plain text value, entered via a single-line text input.</td></tr><tr><td>Boolean</td><td>A true or false value, selected from a dropdown.</td></tr><tr><td>Int</td><td>A 32-bit integer entered in a numeric field.</td></tr><tr><td>Double</td><td>A 64-bit floating-point number entered in a numeric field.</td></tr><tr><td>Long</td><td>A 64-bit integer entered in a numeric field.</td></tr><tr><td>Float</td><td>A 32-bit floating-point number entered in a numeric field.</td></tr><tr><td>SQL Expression</td><td>A SQL expression, either configured through dropdown menus or entered as custom code.</td></tr></tbody></table></div></div></details>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="use-parameters-in-pipelines">Use parameters in pipelines<a href="#use-parameters-in-pipelines" class="hash-link" aria-label="Direct link to Use parameters in pipelines" title="Direct link to Use parameters in pipelines">​</a></h2>
 <p>To use pipeline parameters:</p>
@@ -57,7 +57,7 @@
 <li>Select the <strong>Type</strong> and choose <strong>Array</strong>.</li>
 <li>Select <strong>String</strong> for <strong>Array</strong> type.</li>
 <li>Click <strong>+</strong> to add items to the array.</li>
-<li>Click <strong>Value</strong> and enter <code>US-East</code>.</li>
+<li>Click <strong>Value</strong> and enter <code>US-East</code> (or another region code).</li>
 <li>Click <strong>Done</strong>.</li>
 <li>Repeat steps 6-8 to add <code>US-West</code> and <code>Europe</code> to the <strong>Array</strong> parameter.</li>
 <li>Click <strong>Save</strong>.</li>
@@ -106,8 +106,8 @@
 <li>Add a <strong>Filter</strong> gem to your pipeline.</li>
 <li>Remove the default <code>true</code> expression.</li>
 <li>Select <strong>Column</strong> and select <code>sales_date</code> (or your dataset’s date column).</li>
-<li>Add an expression such as <code>sales_date &gt;= start_date AND sales_date &lt;= end_date</code>.</li>
-<li>For both <code>start_date</code> and <code>end_date</code>, click <strong>Select expression &gt; Configuration Variable</strong> and select the corresponding parameter.</li>
+<li>Choose the <strong>between</strong> operator.</li>
+<li>For both <code>start_date</code> and <code>end_date</code>, click <strong>Select expression &gt; Configuration Variable</strong> and select corresponding pipeline parameters.</li>
 <li>Add a Target table gem called <code>snapshot_by_date</code> and connect it to the Filter gem.</li>
 <li>Click <strong>Save</strong>.</li>
 </ol>
@@ -122,7 +122,7 @@
 <li>In the <strong>Inspect</strong> tab, choose <code>snapshot_by_date</code>.</li>
 <li>Select columns to display.</li>
 </ol>
-<p>When the app runs, users can enter their own values for <code>start_date</code> and <code>end_date</code>.</p>
+<p>When the app runs, users can select their own values for <code>start_date</code> and <code>end_date</code>.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="string-example">String example<a href="#string-example" class="hash-link" aria-label="Direct link to String example" title="Direct link to String example">​</a></h3>
 <p>This example uses a dataset with a column called <code>customer_category</code> with values such as <code>Premium</code>, <code>Basic</code>, and <code>Standard</code>. You can use a <strong>String</strong> pipeline parameter called <code>customer_type</code> to filter rows for a specific group of customers.</p>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-the-string-parameter">Create the String parameter<a href="#create-the-string-parameter" class="hash-link" aria-label="Direct link to Create the String parameter" title="Direct link to Create the String parameter">​</a></h4>
