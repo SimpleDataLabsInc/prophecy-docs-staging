@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-818/assets/css/styles.91a6e78f.css">
-<script src="/prophecy-docs-staging/preview/pr-818/assets/js/runtime~main.bf829c42.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-818/assets/js/runtime~main.80fa1e8f.js" defer="defer"></script>
 <script src="/prophecy-docs-staging/preview/pr-818/assets/js/main.277876a7.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -55,8 +55,9 @@
 <li>Click <strong>+ Add Parameter</strong>.</li>
 <li>Name the parameter <code>region_list</code>.</li>
 <li>Select the <strong>Type</strong> and choose <strong>Array</strong>.</li>
-<li>Click <strong>Select expression &gt; Value</strong>.</li>
-<li>Enter <code>[&#x27;US-East&#x27;,&#x27;US-West&#x27;,&#x27;Europe&#x27;]</code> and click <strong>Done</strong>.</li>
+<li>Select <strong>String</strong> for <strong>Array</strong> type.</li>
+<li>Click <strong>+</strong> to add items to the array.</li>
+<li>Click <strong>Value</strong>, enter <code>US-East</code>, and click <strong>Done</strong>. Repeat this and previous step to add <code>US-West</code> and <code>Europe</code> to the <strong>Array</strong> parameter.</li>
 <li>Click <strong>Save</strong>.</li>
 </ol>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="use-the-array-parameter-in-a-filter-gem">Use the Array parameter in a Filter gem<a href="#use-the-array-parameter-in-a-filter-gem" class="hash-link" aria-label="Direct link to Use the Array parameter in a Filter gem" title="Direct link to Use the Array parameter in a Filter gem">​</a></h4>
@@ -64,24 +65,27 @@
 <ol>
 <li>Add a <strong>Filter</strong> gem.</li>
 <li>Remove the default <code>true</code> expression.</li>
-<li>Select <strong>Column &gt; region</strong>.</li>
-<li>Choose the <strong>In ( ∈ )</strong> operator.</li>
-<li>Click <strong>Select expression &gt; Configuration Variable</strong>.</li>
+<li>Select <strong>Function &gt; Array &gt; array_contains</strong>.</li>
+<li>Choose <strong>value &gt; Configuration Variable</strong></li>
 <li>Select <code>region_list</code>.</li>
+<li>Click <strong>+</strong> to add an argument for <code>array_contains</code> and choose <code>Region</code>.</li>
+<li>Click <strong>Save</strong>.</li>
+<li>Add a Target table gem called <code>sales_transactions_by_region</code> and connect it to the Filter gem.</li>
 <li>Click <strong>Save</strong>.</li>
 </ol>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-a-prophecy-app-to-adjust-region-filters">Create a Prophecy app to adjust region filters<a href="#create-a-prophecy-app-to-adjust-region-filters" class="hash-link" aria-label="Direct link to Create a Prophecy app to adjust region filters" title="Direct link to Create a Prophecy app to adjust region filters">​</a></h4>
 <ol>
 <li>Add a Prophecy app called <code>regional_sales</code>.</li>
 <li>Add a title for the app.</li>
-<li>Select <strong>Interactive &gt; Multi-Select Dropdown</strong>.</li>
+<li>Select <strong>Interactive &gt; Checkbox Group</strong>.</li>
 <li>Select <code>region_list</code> for <strong>Configuration field</strong>.</li>
+<li>Add a region in <strong>Default value</strong>, such as <code>US-East</code>.</li>
 <li>Add options such as <code>US-East</code>, <code>US-West</code>, <code>Europe</code>, <code>Mexico</code>, <code>Brazil</code>, <code>LAC</code>, and <code>Andean</code>.</li>
 <li>Open the <strong>Data Integration</strong> dropdown and select <strong>Data Preview</strong>.</li>
-<li>In the <strong>Inspect</strong> tab, choose your filtered dataset table.</li>
+<li>In the <strong>Inspect</strong> tab, choose <code>sales_transactions_by_region</code>.</li>
 <li>Select columns to display.</li>
 </ol>
-<p>When the app runs, users can substitute values for <code>region_list</code>. For example, a sales team in Latin America might enter <code>[&#x27;Mexico&#x27;,&#x27;LAC&#x27;,&#x27;Brazil&#x27;,&#x27;Andean&#x27;]</code> to view their focus regions.</p>
+<p>When the app runs, users can check boxes for their desired regions. For example, a sales team in Latin America might select <code>[&#x27;Mexico&#x27;,&#x27;LAC&#x27;,&#x27;Brazil&#x27;,&#x27;Andean&#x27;]</code> to view their focus regions.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="date-example">Date example<a href="#date-example" class="hash-link" aria-label="Direct link to Date example" title="Direct link to Date example">​</a></h3>
 <p>This example uses a dataset with timestamped sales data. You can use two <strong>Date</strong> pipeline parameters, <code>start_date</code> and <code>end_date</code> to configure a snapshot of sales data by a time period such as week or month.</p>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-the-date-parameters">Create the Date parameters<a href="#create-the-date-parameters" class="hash-link" aria-label="Direct link to Create the Date parameters" title="Direct link to Create the Date parameters">​</a></h4>
