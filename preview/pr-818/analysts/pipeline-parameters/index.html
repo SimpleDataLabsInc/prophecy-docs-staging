@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-818/assets/css/styles.91a6e78f.css">
-<script src="/prophecy-docs-staging/preview/pr-818/assets/js/runtime~main.5a3e3c6b.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-818/assets/js/runtime~main.5dfa3626.js" defer="defer"></script>
 <script src="/prophecy-docs-staging/preview/pr-818/assets/js/main.277876a7.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -42,7 +42,7 @@
 <li>Open the gem configuration. Ensure you are in the Visual tab.</li>
 <li>Select <strong>Configuration Variables</strong> from an Expression dropdown menu.</li>
 </ol>
-<p>You can use Jinja syntax to add pipeline parameters as configuration variables in the Code tab. To do so, use the following syntax: <code>{{ var(&#x27;disc_rate&#x27;) }})</code>. You can also use Jinja syntax in the Visual tab using the Custom code expression.</p>
+<p>You can use Jinja syntax to add pipeline parameters as configuration variables in the Code tab. To do so, use the following syntax: <code>{{ var(&#x27;disc_rate&#x27;) }})</code>. You can also use Jinja syntax in the Visual tab by using the Custom code expression.</p>
 <p>By default, the pipeline parameter&#x27;s value will be used for the expression, though this value can be overwritten in both Prophecy gems and Prophecy apps.</p>
 <blockquote>
 <p>Example: If you create a parameter called <code>start_date</code> with a value of <em>2025-09-01</em>, you can use it in a Filter gem to include only rows where <code>order_date</code> &gt;= <code>start_date</code>. When the pipeline runs, it injects the parameter’s value into the filter expression.</p>
@@ -211,7 +211,7 @@
 <li>Click <strong>Save</strong>.</li>
 </ol>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="use-the-double-parameter-in-an-expression">Use the Double parameter in an expression<a href="#use-the-double-parameter-in-an-expression" class="hash-link" aria-label="Direct link to Use the Double parameter in an expression" title="Direct link to Use the Double parameter in an expression">​</a></h4>
-<p>Next, you&#x27;ll create a Reformat gem that uses the <code>discount_rate</code> pipeline parameter in an expression.</p>
+<p>Next, you&#x27;ll create a Reformat gem that uses the <code>discount_rate</code> pipeline parameter in an expression that uses Jinja syntax.</p>
 <ol>
 <li>Add a <a href="/prophecy-docs-staging/preview/pr-818/analysts/reformat">Reformat gem</a>.</li>
 <li>Under <strong>Target Column</strong>, add <code>price</code>, <code>product</code>, and <code>quantity</code></li>
