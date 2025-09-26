@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-818/assets/css/styles.91a6e78f.css">
-<script src="/prophecy-docs-staging/preview/pr-818/assets/js/runtime~main.c17520ae.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-818/assets/js/runtime~main.47e95515.js" defer="defer"></script>
 <script src="/prophecy-docs-staging/preview/pr-818/assets/js/main.277876a7.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -39,8 +39,10 @@
 <p>To use pipeline parameters:</p>
 <ol>
 <li>Add any <a href="/prophecy-docs-staging/preview/pr-818/analysts/gems/">gem</a> that uses expressions, such as a <a href="/prophecy-docs-staging/preview/pr-818/analysts/filter">Filter</a> or <a href="/prophecy-docs-staging/preview/pr-818/analysts/reformat">Reformat</a> gem.</li>
+<li>Open the gem configuration. Ensure you are in the Visual tab.</li>
 <li>Select <strong>Configuration Variables</strong> from an Expression dropdown menu.</li>
 </ol>
+<p>You can also use <a href="https://jinja.palletsprojects.com/en/stable/templates/#variables" target="_blank" rel="noopener noreferrer">Jinja syntax</a> to add pipeline parameters as configuration variable in the Code tab.</p>
 <p>By default, the pipeline parameter&#x27;s value will be used for the expression, though this value can be overwritten in both Prophecy gems and Prophecy apps.</p>
 <blockquote>
 <p>Example: If you create a parameter called <code>start_date</code> with a value of <em>2025-09-01</em>, you can use it in a Filter gem to include only rows where <code>order_date</code> &gt;= <code>start_date</code>. When the pipeline runs, it injects the parameter’s value into the filter expression.</p>
