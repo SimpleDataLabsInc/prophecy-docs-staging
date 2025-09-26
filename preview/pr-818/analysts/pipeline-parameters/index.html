@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-818/assets/css/styles.91a6e78f.css">
-<script src="/prophecy-docs-staging/preview/pr-818/assets/js/runtime~main.fb54ff56.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-818/assets/js/runtime~main.c17520ae.js" defer="defer"></script>
 <script src="/prophecy-docs-staging/preview/pr-818/assets/js/main.277876a7.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -67,6 +67,7 @@
 <ol>
 <li>Add a <strong>Filter</strong> gem.</li>
 <li>Remove the default <code>true</code> expression.</li>
+<li>Click <strong>Select expression</strong>.</li>
 <li>Select <strong>Function &gt; Array &gt; array_contains</strong>.</li>
 <li>Choose <strong>value &gt; Configuration Variable</strong></li>
 <li>Select <code>region_list</code>.</li>
@@ -105,6 +106,7 @@
 <ol>
 <li>Add a <strong>Filter</strong> gem to your pipeline.</li>
 <li>Remove the default <code>true</code> expression.</li>
+<li>Click <strong>Select expression</strong>.</li>
 <li>Select <strong>Column</strong> and select <code>sales_date</code> (or your dataset’s date column).</li>
 <li>Choose the <strong>between</strong> operator.</li>
 <li>For both <code>start_date</code> and <code>end_date</code>, click <strong>Select expression &gt; Configuration Variable</strong> and select corresponding pipeline parameters.</li>
@@ -140,7 +142,7 @@
 <ol>
 <li>Add a <strong>Filter</strong> gem.</li>
 <li>Remove the default <code>true</code> expression.</li>
-<li>Select <strong>Column &gt; customer_category</strong>.</li>
+<li>Click <strong>Select expression &gt; Column</strong> and select <code>customer_category</code>.</li>
 <li>Choose the <strong>Equals ( = )</strong> operator.</li>
 <li>Click <strong>Select expression &gt; Configuration Variable</strong>.</li>
 <li>Select <code>customer_type</code>.</li>
@@ -203,17 +205,16 @@
 <li>Name the parameter <code>discount_rate</code>.</li>
 <li>Select the <strong>Type</strong> and choose Double.</li>
 <li>Click <strong>Select expression &gt; Value</strong>.</li>
-<li>Enter <code>1.5</code> and click <strong>Done</strong>.</li>
+<li>Enter <code>.15</code> and click <strong>Done</strong>.</li>
 <li>Click <strong>Save</strong>.</li>
 </ol>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="use-the-double-parameter-in-an-expression">Use the Double parameter in an expression<a href="#use-the-double-parameter-in-an-expression" class="hash-link" aria-label="Direct link to Use the Double parameter in an expression" title="Direct link to Use the Double parameter in an expression">​</a></h4>
 <p>Next, you&#x27;ll create a Reformat gem that uses the <code>discount_rate</code> pipeline parameter in an expression.</p>
 <ol>
-<li>Create and open the <a href="/prophecy-docs-staging/preview/pr-818/analysts/reformat">Reformat gem</a>.</li>
-<li>Remove the default <code>true</code> expression.</li>
-<li>Select <strong>Column &gt; price</strong></li>
-<li>Click <strong>Select expression &gt; Configuration Variable</strong>.</li>
-<li>Select <code>discount_rate</code>.</li>
+<li>Add a <a href="/prophecy-docs-staging/preview/pr-818/analysts/reformat">Reformat gem</a>.</li>
+<li>Under <strong>Target Column</strong>, add <code>price</code>, <code>product</code>, and <code>quantity</code></li>
+<li>Under <strong>Target Column</strong>, add a new column called <code>discounted_price</code>.</li>
+<li>Click **Select expression &gt; Custom code ** and enter <code>price * (1 - {{ var(&#x27;discout_rate&#x27;) }})</code>.</li>
 <li>Add a Target table gem called <code>products_discounted</code> and connect it to the Reformat gem.</li>
 <li>Click <strong>Save</strong>.</li>
 </ol>
