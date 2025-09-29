@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-818/assets/css/styles.91a6e78f.css">
-<script src="/prophecy-docs-staging/preview/pr-818/assets/js/runtime~main.f28809d4.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-818/assets/js/runtime~main.f30f7bc2.js" defer="defer"></script>
 <script src="/prophecy-docs-staging/preview/pr-818/assets/js/main.277876a7.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -42,8 +42,8 @@
 <li>Open the gem configuration. Ensure you are in the Visual tab.</li>
 <li>Select <strong>Configuration Variables</strong> from an Expression dropdown menu.</li>
 </ol>
-<p>You can use Jinja syntax to add pipeline parameters as configuration variables in the Code tab. To do so, use the following syntax: <code>{{ var(&#x27;disc_rate&#x27;) }})</code>. You can also use Jinja syntax in the Visual tab by using the Custom code expression.</p>
-<p>By default, the pipeline parameter&#x27;s value will be used for the expression, though this value can be overwritten in both Prophecy gems and Prophecy apps.</p>
+<p>You can use Jinja syntax to add pipeline parameters as configuration variables in the Code tab. To do so, use the following syntax: <code>{{ var(&#x27;disc_rate&#x27;) }})</code>. You can also use Jinja syntax in the Visual tab by using the Custom code expression. For more information on Jinja variables, see <a href="https://docs.getdbt.com/reference/dbt-jinja-functions/var" target="_blank" rel="noopener noreferrer">dbt&#x27;s documentation on Jinja</a>.</p>
+<p>By default, the pipeline parameter&#x27;s value will be used for the expression, though this value can be overwritten in both pipeline gems and Prophecy Apps.</p>
 <blockquote>
 <p>Example: If you create a parameter called <code>start_date</code> with a value of <em>2025-09-01</em>, you can use it in a Filter gem to include only rows where <code>order_date</code> &gt;= <code>start_date</code>. When the pipeline runs, it injects the parameter’s value into the filter expression.</p>
 </blockquote>
@@ -78,9 +78,9 @@
 <li>Add a Target table gem called <code>sales_transactions_by_region</code> and connect it to the Filter gem.</li>
 <li>Click <strong>Save</strong>.</li>
 </ol>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-a-prophecy-app-to-adjust-region-filters">Create a Prophecy app to adjust region filters<a href="#create-a-prophecy-app-to-adjust-region-filters" class="hash-link" aria-label="Direct link to Create a Prophecy app to adjust region filters" title="Direct link to Create a Prophecy app to adjust region filters">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-a-prophecy-app-to-adjust-region-filters">Create a Prophecy App to adjust region filters<a href="#create-a-prophecy-app-to-adjust-region-filters" class="hash-link" aria-label="Direct link to Create a Prophecy App to adjust region filters" title="Direct link to Create a Prophecy App to adjust region filters">​</a></h4>
 <ol>
-<li>Add a Prophecy app called <code>regional_sales</code>.</li>
+<li>Add a Prophecy App called <code>regional_sales</code>.</li>
 <li>Add a title for the app.</li>
 <li>Select <strong>Interactive &gt; Checkbox Group</strong>.</li>
 <li>Select <code>region_list</code> for <strong>Configuration field</strong>.</li>
@@ -115,9 +115,9 @@
 <li>Add a Target table gem called <code>snapshot_by_date</code> and connect it to the Filter gem.</li>
 <li>Click <strong>Save</strong>.</li>
 </ol>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-a-prophecy-app-with-date-fields">Create a Prophecy app with date fields<a href="#create-a-prophecy-app-with-date-fields" class="hash-link" aria-label="Direct link to Create a Prophecy app with date fields" title="Direct link to Create a Prophecy app with date fields">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-a-prophecy-app-with-date-fields">Create a Prophecy App with date fields<a href="#create-a-prophecy-app-with-date-fields" class="hash-link" aria-label="Direct link to Create a Prophecy App with date fields" title="Direct link to Create a Prophecy App with date fields">​</a></h4>
 <ol>
-<li>Add a Prophecy app called <code>sales_snapshot</code>.</li>
+<li>Add a Prophecy App called <code>sales_snapshot</code>.</li>
 <li>Add a title.</li>
 <li>Select <strong>Interactive &gt; Date Field</strong>.</li>
 <li>For <strong>Configuration field</strong>, choose <code>start_date</code>.</li>
@@ -151,9 +151,9 @@
 <li>Add a Target table gem called <code>filtered_customers</code> and connect it to the Reformat gem.</li>
 <li>Click <strong>Save</strong>.</li>
 </ol>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-a-prophecy-app-to-select-customer-groups">Create a Prophecy app to select customer groups<a href="#create-a-prophecy-app-to-select-customer-groups" class="hash-link" aria-label="Direct link to Create a Prophecy app to select customer groups" title="Direct link to Create a Prophecy app to select customer groups">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-a-prophecy-app-to-select-customer-groups">Create a Prophecy App to select customer groups<a href="#create-a-prophecy-app-to-select-customer-groups" class="hash-link" aria-label="Direct link to Create a Prophecy App to select customer groups" title="Direct link to Create a Prophecy App to select customer groups">​</a></h4>
 <ol>
-<li>Add a Prophecy app called <code>customer_segment</code>.</li>
+<li>Add a Prophecy App called <code>customer_segment</code>.</li>
 <li>Add a title for the app.</li>
 <li>Select <strong>Interactive &gt; Dropdown</strong>.</li>
 <li>Give the dropdown a label.</li>
@@ -164,7 +164,7 @@
 </ol>
 <p>When the app runs, users can switch the <code>customer_type</code> parameter from <code>Premium</code> to <code>Standard</code> (or another category) to explore different customer groups.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="boolean-example">Boolean example<a href="#boolean-example" class="hash-link" aria-label="Direct link to Boolean example" title="Direct link to Boolean example">​</a></h3>
-<p>This example uses a dataset of customer reviews, in which reviews older than 5 years are designated as <code>archived</code>, using a column called <code>archived_reviews</code> with Boolean values. You can use a Boolean pipeline parameter to create a Prophecy app that lets users choose whether to include archived reviews.</p>
+<p>This example uses a dataset of customer reviews, in which reviews older than 5 years are designated as <code>archived</code>, using a column called <code>archived_reviews</code> with Boolean values. You can use a Boolean pipeline parameter to create a Prophecy App that lets users choose whether to include archived reviews.</p>
 <p>First, you&#x27;ll set up an <code>include_archived</code> parameter, which will be a Boolean value.</p>
 <ol>
 <li>Open your project and select <strong>Parameters</strong> in the header.</li>
@@ -186,10 +186,10 @@
 <li>Add a Target table gem called <code>prod_filtered_archived</code> and connect it to the Filter gem.</li>
 <li>Click <strong>Save</strong>.</li>
 </ol>
-<p>The output of this gem will only include rows where <code>include_archived</code> is false. In the steps below, you&#x27;ll create a Prophecy app that lets users change <code>include_archived</code> to true.</p>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-a-prophecy-app-to-show-archived-data">Create a Prophecy app to show archived data<a href="#create-a-prophecy-app-to-show-archived-data" class="hash-link" aria-label="Direct link to Create a Prophecy app to show archived data" title="Direct link to Create a Prophecy app to show archived data">​</a></h4>
+<p>The output of this gem will only include rows where <code>include_archived</code> is false. In the steps below, you&#x27;ll create a Prophecy App that lets users change <code>include_archived</code> to true.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-a-prophecy-app-to-show-archived-data">Create a Prophecy App to show archived data<a href="#create-a-prophecy-app-to-show-archived-data" class="hash-link" aria-label="Direct link to Create a Prophecy App to show archived data" title="Direct link to Create a Prophecy App to show archived data">​</a></h4>
 <ol>
-<li>Add a Prophecy app called Reviews.</li>
+<li>Add a Prophecy App called Reviews.</li>
 <li>Add a <strong>Title</strong> for the app.</li>
 <li>Add a <strong>Toggle</strong> that uses <code>include_archived</code> as a <strong>Configuration</strong> field, with a label reading <code>Include archived reviews?</code>.</li>
 <li>Open the <strong>Data Integration</strong> dropdown and select <strong>Data Preview</strong>.</li>
@@ -220,9 +220,9 @@
 <li>Add a Target table gem called <code>products_discounted</code> and connect it to the Reformat gem.</li>
 <li>Click <strong>Save</strong>.</li>
 </ol>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-a-prophecy-app-to-show-discounted-products">Create a Prophecy app to show discounted products<a href="#create-a-prophecy-app-to-show-discounted-products" class="hash-link" aria-label="Direct link to Create a Prophecy app to show discounted products" title="Direct link to Create a Prophecy app to show discounted products">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-a-prophecy-app-to-show-discounted-products">Create a Prophecy App to show discounted products<a href="#create-a-prophecy-app-to-show-discounted-products" class="hash-link" aria-label="Direct link to Create a Prophecy App to show discounted products" title="Direct link to Create a Prophecy App to show discounted products">​</a></h4>
 <ol>
-<li>Add a Prophecy app called <code>products_with_reviews</code>.</li>
+<li>Add a Prophecy App called <code>products_with_reviews</code>.</li>
 <li>Add a title for the app.</li>
 <li>Select <strong>Interactive &gt; Number Input</strong>.</li>
 <li>Select <code>discount_rate</code> for <strong>Configuration field</strong>.</li>
@@ -254,9 +254,9 @@
 <li>Add a <strong>Table</strong> gem called <code>usage_over_cap</code> and connect it to the <strong>Filter</strong> gem.</li>
 <li>Click <strong>Save</strong>.</li>
 </ol>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-a-prophecy-app-to-adjust-the-cap">Create a Prophecy app to adjust the cap<a href="#create-a-prophecy-app-to-adjust-the-cap" class="hash-link" aria-label="Direct link to Create a Prophecy app to adjust the cap" title="Direct link to Create a Prophecy app to adjust the cap">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-a-prophecy-app-to-adjust-the-cap">Create a Prophecy App to adjust the cap<a href="#create-a-prophecy-app-to-adjust-the-cap" class="hash-link" aria-label="Direct link to Create a Prophecy App to adjust the cap" title="Direct link to Create a Prophecy App to adjust the cap">​</a></h4>
 <ol>
-<li>Add a Prophecy app called <code>usage_cap_monitor</code>.</li>
+<li>Add a Prophecy App called <code>usage_cap_monitor</code>.</li>
 <li>Add a title for the app.</li>
 <li>Select <strong>Interactive &gt; Number Input</strong>.</li>
 <li>Select <code>usage_cap_mb</code> for <strong>Configuration field</strong> and label it <strong>Monthly Cap (MB)</strong>.</li>
@@ -289,9 +289,9 @@
 <li>Add a Table gem called <code>filtered_temperature</code> and connect it to the Filter gem.</li>
 <li>Click <strong>Save</strong>.</li>
 </ol>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-a-prophecy-app-to-adjust-sensitivity">Create a Prophecy app to adjust sensitivity<a href="#create-a-prophecy-app-to-adjust-sensitivity" class="hash-link" aria-label="Direct link to Create a Prophecy app to adjust sensitivity" title="Direct link to Create a Prophecy app to adjust sensitivity">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="create-a-prophecy-app-to-adjust-sensitivity">Create a Prophecy App to adjust sensitivity<a href="#create-a-prophecy-app-to-adjust-sensitivity" class="hash-link" aria-label="Direct link to Create a Prophecy App to adjust sensitivity" title="Direct link to Create a Prophecy App to adjust sensitivity">​</a></h4>
 <ol>
-<li>Add a Prophecy app called <code>temperature_monitor</code>.</li>
+<li>Add a Prophecy App called <code>temperature_monitor</code>.</li>
 <li>Add a title for the app.</li>
 <li>Select <strong>Interactive &gt; Number Input</strong>.</li>
 <li>Select <code>temperature_threshold</code> for <strong>Configuration field</strong>.</li>
