@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-853/assets/css/styles.91a6e78f.css">
-<script src="/prophecy-docs-staging/preview/pr-853/assets/js/runtime~main.14230e92.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-853/assets/js/runtime~main.1fc811bb.js" defer="defer"></script>
 <script src="/prophecy-docs-staging/preview/pr-853/assets/js/main.5525b08a.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -23,7 +23,7 @@
 <li>Accepts sequence parameters such as <code>START WITH</code> and <code>INCREMENT BY</code> to control how values are generated.</li>
 <li>Generates values automatically based solely on the sequence parameters.</li>
 <li>Creates an IDENTITY column managed entirely by SAP HANA.</li>
-<li>Ignores if a value is provided during an insert.</li>
+<li>Ignores values provided during an insert.</li>
 </ul>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="example-always-as">Example<a href="#example-always-as" class="hash-link" aria-label="Direct link to Example" title="Direct link to Example">​</a></h4>
 <p>Assume you need a column that auto-increments primary keys for users or products. You never want users or inserts to override the value.</p>
@@ -39,7 +39,7 @@
 <li>Accepts sequence parameters such as <code>START WITH</code> and <code>INCREMENT BY</code> to control how values are generated.</li>
 <li>Generates values automatically <em>when no value is provided in an insert</em>.</li>
 <li>Creates an IDENTITY column that can accept manual values if they are included in the insert.</li>
-<li>Adjusts the internal sequence automatically if a manually provided value is higher (or lower, with negative increment) than the current sequence.</li>
+<li>Adjusts the internal sequence automatically if a manually provided value is higher (or lower, in the case of a negative increment) than the current sequence.</li>
 </ul>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="example-by-default">Example<a href="#example-by-default" class="hash-link" aria-label="Direct link to Example" title="Direct link to Example">​</a></h4>
 <p>Assume you need to migrate legacy data while keeping original IDs, but still allowing auto-increment for new rows.</p>

@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-853/assets/css/styles.91a6e78f.css">
-<script src="/prophecy-docs-staging/preview/pr-853/assets/js/runtime~main.14230e92.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-853/assets/js/runtime~main.1fc811bb.js" defer="defer"></script>
 <script src="/prophecy-docs-staging/preview/pr-853/assets/js/main.5525b08a.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -40,13 +40,13 @@
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="generated-columns">Generated columns<a href="#generated-columns" class="hash-link" aria-label="Direct link to Generated columns" title="Direct link to Generated columns">​</a></h4>
 <p>Generated columns are specific to SAP HANA and auto-generate values for new rows. You can define generated columns in the Properties tab via column-level metadata. Learn more in <a href="/prophecy-docs-staging/preview/pr-853/analysts/hana-generated-columns">Generated columns</a>.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="write-options">Write options<a href="#write-options" class="hash-link" aria-label="Direct link to Write options" title="Direct link to Write options">​</a></h3>
-<p>Control how data is written into the target table during each run of the pipeline. Choose a mode based on whether you want to overwrite, append, or merge rows.</p>
+<p>Control how data is written into the target table during each run of the pipeline. Choose whether to overwrite, append, or merge rows.</p>
 <table><thead><tr><th>Mode</th><th>Description</th></tr></thead><tbody><tr><td>Wipe &amp; Replace Table</td><td>Deletes the existing table and creates a new one with the incoming data.</td></tr><tr><td>Write Fresh Table; Error if exists</td><td>Creates a new table, and fails if a table with the same name already exists.</td></tr><tr><td>Append Row</td><td>Inserts all incoming rows to the existing table without modifying existing data.</td></tr><tr><td>Merge - Upsert Row</td><td>Update if keys match, insert if not.</td></tr><tr><td>Merge - Update Row</td><td>Only update columns where key matches.</td></tr><tr><td>Merge - Delete Row</td><td>Delete rows where key matches.</td></tr><tr><td>Merge - Delete row if exists; otherwise insert</td><td>Delete rows where key matches, otherwise insert a new row.</td></tr></tbody></table>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="advanced-options">Advanced options<a href="#advanced-options" class="hash-link" aria-label="Direct link to Advanced options" title="Direct link to Advanced options">​</a></h4>
 <p>Configure the following for <strong>Wipe &amp; Replace Table</strong>, <strong>Write Fresh Table; Error if exists</strong>, and <strong>Append Row</strong> modes.</p>
 <table><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Parallelism</td><td>The number of insert queries to execute in parallel.</td></tr><tr><td>Rows Per Insert</td><td>The number of rows included in each insert query to the SAP HANA database.</td></tr></tbody></table>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="merge-parameters">Merge parameters<a href="#merge-parameters" class="hash-link" aria-label="Direct link to Merge parameters" title="Direct link to Merge parameters">​</a></h4>
-<p>Configure the following after selecting a <strong>Merge</strong> mode.</p>
+<p>Configure the following for any <strong>Merge</strong>.</p>
 <table><thead><tr><th>Parameter</th><th>Required For</th><th>Description</th></tr></thead><tbody><tr><td>Merge condition</td><td>All merge modes</td><td>Specify one or more key columns that determine how incoming rows match existing rows in the target table. These columns act as the unique identifiers.</td></tr><tr><td>Merge columns</td><td>Upsert row, Update row, Delete row if exists; otherwise insert</td><td>Select the specific columns to update or write when a key match is found. This controls which fields are modified during updates or inserts.</td></tr></tbody></table>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="example-merge---upsert-row">Example: Merge - Upsert Row<a href="#example-merge---upsert-row" class="hash-link" aria-label="Direct link to Example: Merge - Upsert Row" title="Direct link to Example: Merge - Upsert Row">​</a></h3>
 <p>This example demonstrates how the <strong>Upsert row</strong> merge mode works when updating an SAP HANA table.</p>
