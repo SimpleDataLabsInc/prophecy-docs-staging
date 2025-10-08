@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-829/assets/css/styles.a52ecc4f.css">
-<script src="/prophecy-docs-staging/preview/pr-829/assets/js/runtime~main.a889a5ac.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-829/assets/js/runtime~main.630ee3e7.js" defer="defer"></script>
 <script src="/prophecy-docs-staging/preview/pr-829/assets/js/main.c4d2ac44.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -24,12 +24,6 @@
 <p>To read/write XLSX files using the Pandas Library Type, you need to:</p>
 <ul>
 <li>
-<p>Update ProphecySparkBasicsPython 0.2.5+</p>
-</li>
-<li>
-<p>Update ProphecyLibsPython 2.1.5+</p>
-</li>
-<li>
 <p>Add the following Python dependencies to your pipeline:</p>
 <ul>
 <li><a href="https://pypi.org/project/pandas/" target="_blank" rel="noopener noreferrer">pandas</a></li>
@@ -39,10 +33,13 @@
 <p>You will need to restart or reattach your cluster for these libraries to be installed.</p>
 </li>
 <li>
-<p>Read from Databricks (SFTP and SharePoint not supported)</p>
+<p>For Databricks Serverless:</p>
+<ul>
+<li>Update ProphecySparkBasicsPython 0.2.5+</li>
+<li>Update ProphecyLibsPython 2.1.5+</li>
+</ul>
 </li>
 </ul>
-<p>Use this method when running on UC standard clusters or Databricks Serverless.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="read-with-crealytics">Read with Crealytics<a href="#read-with-crealytics" class="hash-link" aria-label="Direct link to Read with Crealytics" title="Direct link to Read with Crealytics">​</a></h3>
 <p>To read/write XLSX files using the Crealytics Library Type:</p>
 <ul>
