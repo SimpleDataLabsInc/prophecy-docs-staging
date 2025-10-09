@@ -8,8 +8,8 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-824/assets/css/styles.fb59e090.css">
-<script src="/prophecy-docs-staging/preview/pr-824/assets/js/runtime~main.b302d43f.js" defer="defer"></script>
-<script src="/prophecy-docs-staging/preview/pr-824/assets/js/main.404e1899.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-824/assets/js/runtime~main.bccc5e9c.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-824/assets/js/main.657f7a56.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
@@ -25,7 +25,7 @@
 <p>This ensures your Python logic runs in an environment optimized for your data platform.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="troubleshooting">Troubleshooting<a href="#troubleshooting" class="hash-link" aria-label="Direct link to Troubleshooting" title="Direct link to Troubleshooting">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="permission-error-with-service-principals">Permission error with service principals<a href="#permission-error-with-service-principals" class="hash-link" aria-label="Direct link to Permission error with service principals" title="Direct link to Permission error with service principals">​</a></h3>
-<p>When using a fabric with <a href="/prophecy-docs-staging/preview/pr-824/databricks-oauth-authentication#use-cases-supported-by-databricks">service principal authentication for Databricks</a>, you may encounter the following error:</p>
+<p>When using a fabric with <a href="/prophecy-docs-staging/preview/pr-824/administration/fabrics/prophecy-fabrics/connections/databricks#oauth">service principal authentication for Databricks</a>, you may encounter the following error:</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Failed due to: Unable to get run status for job id: INTERNAL_ERROR</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Cannot read the python file dbfs:/prophecy_tmp/prophecy_script_gem_[uuid].py</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">User does not have permission SELECT on ANY File</span><br></span></code></pre></div></div>
 <p>This occurs because the Script gem uploads Python scripts to DBFS for execution. Service principals require explicit permissions to read files from DBFS.</p>
 <p>To solve this, contact your Databricks administrator for assistance. One workaround is to grant the service principal <code>SELECT</code> permission on <code>ANY FILE</code>:</p>
