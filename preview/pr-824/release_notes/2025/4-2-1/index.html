@@ -8,8 +8,8 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-824/assets/css/styles.fb59e090.css">
-<script src="/prophecy-docs-staging/preview/pr-824/assets/js/runtime~main.2887dd9d.js" defer="defer"></script>
-<script src="/prophecy-docs-staging/preview/pr-824/assets/js/main.a02af397.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-824/assets/js/runtime~main.54093781.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-824/assets/js/main.c29267c8.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
@@ -81,8 +81,11 @@
 <p>You can now run the following gems in Databricks Serverless:</p>
 <table><thead><tr><th>Gem</th><th>Requirements</th></tr></thead><tbody><tr><td><a href="/prophecy-docs-staging/preview/pr-824/engineers/xlsx">XLSX Source and Target</a></td><td>ProphecySparkBasicsPython &gt;= 0.2.5<br>ProphecyLibsPython &gt;= 2.1.5<br>Pandas Library Type only (Crealytics not supported)</td></tr><tr><td><a href="/prophecy-docs-staging/preview/pr-824/engineers/text">Text Source and Target</a></td><td>ProphecySparkBasicsPython &gt;= 0.2.5</td></tr></tbody></table>
 </li>
-</ul>
-<p><strong>Databricks Jobs</strong>: Expanded configuration options and improved integration with Prophecy orchestration.</p>
+<li>
+<p>When <a href="/prophecy-docs-staging/preview/pr-824/administration/authentication/emr-saml">using EMR SAML authentication with Okta</a>, you will see <a href="/prophecy-docs-staging/preview/pr-824/administration/fabrics/Spark-fabrics/emr-job-sizes">updated job size configurations</a> in EMR fabrics.</p>
+</li>
+<li>
+<p>For <a href="/prophecy-docs-staging/preview/pr-824/engineers/databricks-jobs">Databricks Jobs</a>, we have expanded configuration options and improved integration with Prophecy orchestration.</p>
 <ul>
 <li><strong>Email notifications</strong>: Now includes a duration threshold, providing email alerts when jobs exceed expected runtimes.</li>
 <li><strong>If Else gem</strong>: Implement conditional branching within a job to control execution flow between two paths.</li>
@@ -91,6 +94,8 @@
 <li><strong>Delta Live Tables Pipeline gem</strong>: Run a Databricks Delta Live Tables pipeline from a Prophecy job.</li>
 <li><strong>Run Conditions for job gems</strong>: Control when a job gem executes based on the outcome of upstream job gems.</li>
 <li><strong>For Each execution for job gems</strong>: Configure most job gems to run multiple iterations dynamically using the For Each option in the gem&#x27;s Conditional tab.</li>
+</ul>
+</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="prophecy-library-versions">Prophecy Library versions<a href="#prophecy-library-versions" class="hash-link" aria-label="Direct link to Prophecy Library versions" title="Direct link to Prophecy Library versions">​</a></h3>
 <p>The following are the newest available Prophecy Library versions in this release.</p>
