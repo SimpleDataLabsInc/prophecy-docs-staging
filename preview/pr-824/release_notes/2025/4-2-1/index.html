@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-824/assets/css/styles.fb59e090.css">
-<script src="/prophecy-docs-staging/preview/pr-824/assets/js/runtime~main.e6cf2288.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-824/assets/js/runtime~main.2887dd9d.js" defer="defer"></script>
 <script src="/prophecy-docs-staging/preview/pr-824/assets/js/main.a02af397.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -43,7 +43,15 @@
 <p>The <a href="/prophecy-docs-staging/preview/pr-824/analysts/email">Email gem</a> now supports a <strong>Use column</strong> option for several parameters, including <strong>To</strong>, <strong>Cc</strong>, <strong>Bc</strong>, <strong>Subject</strong>, and <strong>Body</strong>. When enabled, these fields can be dynamically populated from columns in your input dataset. Each row in your dataset can specify a different recipient and/or custom message while sending the same attachment to all recipients.</p>
 </li>
 <li>
-<p>The <a href="/prophecy-docs-staging/preview/pr-824/analysts/rest-api">RestAPI gem</a> now supports parsing JSON responses into multiple output columns.</p>
+<p>The <a href="/prophecy-docs-staging/preview/pr-824/analysts/rest-api">RestAPI gem</a> has been updated in the following ways:</p>
+<ul>
+<li>
+<p>The gem now supports parsing JSON responses into multiple output columns.</p>
+</li>
+<li>
+<p>There are two new authentication methods — <strong>Basic Auth</strong> and <strong>Bearer Token</strong> — that automatically send credentials to APIs using new <a href="/prophecy-docs-staging/preview/pr-824/analysts/secrets">Prophecy secret types</a>.</p>
+</li>
+</ul>
 </li>
 <li>
 <p>XLSX (Excel) Source and Target gems have been enhanced:</p>
