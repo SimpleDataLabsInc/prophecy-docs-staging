@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-875/assets/css/styles.fb59e090.css">
-<script src="/prophecy-docs-staging/preview/pr-875/assets/js/runtime~main.7ec6a315.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-875/assets/js/runtime~main.97ddec25.js" defer="defer"></script>
 <script src="/prophecy-docs-staging/preview/pr-875/assets/js/main.a8c35317.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -22,8 +22,8 @@ A Prophecy Databricks job corresponds to a Databricks job definition under the h
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="summary-of-orchestration">Summary of orchestration<a href="#summary-of-orchestration" class="hash-link" aria-label="Direct link to Summary of orchestration" title="Direct link to Summary of orchestration">​</a></h2>
 <p>There are a few ways to structure orchestration between Prophecy and Databricks:</p>
 <ol>
-<li><strong>(Smallest / Shared)</strong> Databricks Workflow → Prophecy Scheduler → Databricks See <a href="/prophecy-docs-staging/preview/pr-875/engineers/automate-pipelines-databricks">Run Prophecy pipelines in Databricks jobs</a> for more information.</li>
-<li><strong>(Recommended)</strong> Prophecy Scheduler → Databricks.</li>
+<li><strong>(Smallest / Shared)</strong> Databricks Workflow → Prophecy Scheduler → Databricks. Works for SQL pipelines only. See <a href="/prophecy-docs-staging/preview/pr-875/engineers/automate-pipelines-databricks">Run Prophecy pipelines in Databricks jobs</a> for more information.</li>
+<li><strong>(Recommended for Spark pipelines)</strong> Prophecy Scheduler → Databricks.</li>
 <li><strong>Prophecy Export Code:</strong> CODE → Databricks. See <a href="/prophecy-docs-staging/preview/pr-875/Orchestration/alternative-schedulers">Alternative Schedulers</a> for more information.</li>
 </ol>
 <p>This document describes Option 2, the most common for production environments. With this option, you use the <strong>Prophecy Scheduler</strong> to coordinate Databricks jobs, maintaining Prophecy as the orchestration layer while using Databricks for execution.</p>

@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-875/assets/css/styles.fb59e090.css">
-<script src="/prophecy-docs-staging/preview/pr-875/assets/js/runtime~main.7ec6a315.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-875/assets/js/runtime~main.97ddec25.js" defer="defer"></script>
 <script src="/prophecy-docs-staging/preview/pr-875/assets/js/main.a8c35317.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -21,11 +21,11 @@
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="summary-of-orchestration">Summary of orchestration<a href="#summary-of-orchestration" class="hash-link" aria-label="Direct link to Summary of orchestration" title="Direct link to Summary of orchestration">​</a></h2>
 <p>There are a few ways to structure orchestration between Prophecy and Databricks:</p>
 <ol>
-<li><strong>(Smallest / Shared)</strong> Databricks Workflow → Prophecy Scheduler → Databricks</li>
-<li><strong>(Recommended)</strong> Prophecy Scheduler → Databricks. See <a href="/prophecy-docs-staging/preview/pr-875/engineers/databricks-jobs">Scheduling Databricks Jobs</a> for more information.</li>
+<li><strong>(Smallest / Shared)</strong> Databricks Workflow → Prophecy Scheduler → Databricks. Works for SQL pipelines only.</li>
+<li><strong>(Recommended for Spark pipelines)</strong> Prophecy Scheduler → Databricks. See <a href="/prophecy-docs-staging/preview/pr-875/engineers/databricks-jobs">Scheduling Databricks Jobs</a> for more information.</li>
 <li><strong>Prophecy Export Code:</strong> CODE → Databricks. See <a href="/prophecy-docs-staging/preview/pr-875/Orchestration/alternative-schedulers">Alternative Schedulers</a> for more information.</li>
 </ol>
-<p>Option 2 is the most common for production environments: use the <strong>Prophecy Scheduler</strong> to coordinate Databricks jobs, maintaining Prophecy as the orchestration layer while using Databricks for execution. This document describes Option 1: how to call the Prophecy Scheduler from Databricks.</p>
+<p>Option 2 is the most common for Spark production environments: use the <strong>Prophecy Scheduler</strong> to coordinate Databricks jobs, maintaining Prophecy as the orchestration layer while using Databricks for execution. This document describes Option 1: how to call the Prophecy Scheduler from Databricks.</p>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert" style="background-color:var(--ifm-color-secondary-contrast-background);box-shadow:none;border:1px solid #d1d5db"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><img src="/img/icon.png" alt="icon" style="width:20px;margin-right:5px;margin-top:5px;margin-bottom:8px"></span>Enterprise Only</div><div class="admonitionContent_BuS1"><p>This deployment model requires the <a href="/prophecy-docs-staging/preview/pr-875/getting-started/editions/">Enterprise Edition</a> of Prophecy.</p></div></div>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="create-job">Create job<a href="#create-job" class="hash-link" aria-label="Direct link to Create job" title="Direct link to Create job">​</a></h2>
 <p>To begin, create a job in Databricks:</p>
@@ -36,7 +36,7 @@
 </ol>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="configure-job">Configure job<a href="#configure-job" class="hash-link" aria-label="Direct link to Configure job" title="Direct link to Configure job">​</a></h2>
 <p>In the dialog, configure the following parameters:</p>
-<table><thead><tr><th>Field</th><th>Description</th></tr></thead><tbody><tr><td>Task name <strong>(Required)</strong></td><td>Enter a descriptive task name such as <code>ProphecyRun</code>.</td></tr><tr><td>Type <strong>(Required)</strong></td><td>Select <strong>Python script</strong>. Should be pre-selected.</td></tr><tr><td>Source</td><td>Choose <strong>Workspace</strong>.</td></tr><tr><td>Path</td><td>Provide the Databricks repository path to your Python trigger file, such as <code>/Users/databricks-dev-e2@simpledatalabs.com/pipeline_trigger.py</code>. See <a href="#sample-python-trigger-file">sample trigger file</a> below.</td></tr><tr><td>Compute</td><td>Select <strong>Serverless (Autoscaling)</strong>.</td></tr><tr><td>Environment and Libraries</td><td>Leave as <strong>Default</strong> unless you need custom libraries.</td></tr></tbody></table>
+<table><thead><tr><th>Field</th><th>Description</th></tr></thead><tbody><tr><td>Task name <strong>(Required)</strong></td><td>Enter a descriptive task name such as <code>ProphecyRun</code>.</td></tr><tr><td>Type <strong>(Required)</strong></td><td>Select <strong>Python script</strong>. Should be pre-selected.</td></tr><tr><td>Source</td><td>Choose <strong>Workspace</strong>.</td></tr><tr><td>Path</td><td>Provide the Databricks Workspace path to your Python trigger file, such as <code>/Users/databricks-dev-e2@simpledatalabs.com/pipeline_trigger.py</code>. <br>See <a href="#sample-python-trigger-file">sample trigger file</a> below for an example of a Python trigger file.<br>For information on Databricks workspace files, see <a href="https://docs.databricks.com/aws/en/files/workspace" target="_blank" rel="noopener noreferrer">What are workspace files?</a> in Databricks documentation.</td></tr><tr><td>Compute</td><td>Select <strong>Serverless (Autoscaling)</strong>.</td></tr><tr><td>Environment and Libraries</td><td>Leave as <strong>Default</strong> unless you need custom libraries.</td></tr></tbody></table>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="add-parameters">Add parameters<a href="#add-parameters" class="hash-link" aria-label="Direct link to Add parameters" title="Direct link to Add parameters">​</a></h3>
 <p>Next, you&#x27;ll add parameters to the job. These identify which Prophecy pipeline to trigger.</p>
 <p>They are passed to the script as runtime arguments:</p>
