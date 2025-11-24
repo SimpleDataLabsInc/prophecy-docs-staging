@@ -8,7 +8,7 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/prophecy-docs-staging/preview/pr-834/assets/css/styles.fb59e090.css">
-<script src="/prophecy-docs-staging/preview/pr-834/assets/js/runtime~main.84463773.js" defer="defer"></script>
+<script src="/prophecy-docs-staging/preview/pr-834/assets/js/runtime~main.b12e8484.js" defer="defer"></script>
 <script src="/prophecy-docs-staging/preview/pr-834/assets/js/main.f00eba5d.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -30,7 +30,7 @@
 <p>Mainly, you need to ensure that you use <em>unique keys</em> to specify where data should be written in the external system. A unique key is a column or set of columns that uniquely identify a row in a dataset, such as a <code>customer_id</code> in a <code>customers</code> table. In merge/upsert operations, the unique key is what tells the system “this row already exists, update it” versus “this row is new, insert it.”</p>
 <p>If the unique key isn’t consistent (such as a timestamp that changes each run) reruns may create duplicate or conflicting rows. Because you might see the “same” record multiple times (due to retries, lag, or replays), unique keys are how you prevent duplicate inserts. Without unique keys, retries against an eventually consistent system risk creating divergent states.</p>
 <p>For example, imagine a Prophecy updates a customer’s status to “Active” in an external CRM. At first, the CRM might still show “Pending” until the update arrives, but eventually, it should match. To make this process reliable, we want to write using a unique <code>customer_id</code>.</p>
-<!-- -->
+<p>[NEED DIAGRAM HERE]</p>
 <div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>Prophecy cannot <em>guarantee</em> the consistency of writes to external systems (eventual consistency is not enforced), but by designing with eventual consistency in mind, you can reduce risk.</p></div></div>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="principles-of-eventual-consistency">Principles of eventual consistency<a href="#principles-of-eventual-consistency" class="hash-link" aria-label="Direct link to Principles of eventual consistency" title="Direct link to Principles of eventual consistency">​</a></h4>
 <p>These principles apply whether the target is cloud storage, an external warehouse table, or a third-party API with batch endpoints.</p>
